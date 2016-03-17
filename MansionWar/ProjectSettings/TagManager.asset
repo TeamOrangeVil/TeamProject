@@ -4,8 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - WALL
-  - MOBATK
+  - Floor
+  - DoorUp
+  - DoorDown
+  - DoorRight
+  - DoorLeft
+  - Monster
   layers:
   - Default
   - TransparentFX

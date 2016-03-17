@@ -20,12 +20,6 @@ public class forblog : MonoBehaviour {
     public float jumpSpeed = 0.1f;
     public bool isJump = false;
 
-    bool attacking = false;
-    float attackTimer = 0;
-    float attackCd = 0.4f;
-
-    public Collider atkTrigger;
-
     void Awake()
     {
         //Player의 컴포넌트
@@ -89,8 +83,9 @@ public class forblog : MonoBehaviour {
     {
         movement.Set(h, 0, v);
         tr.Translate(movement.normalized * walkSpeed * Time.deltaTime, Space.World);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -10.0f, 10.0f), Mathf.Clamp(transform.position.y, -8.0f, 8.0f), Mathf.Clamp(transform.position.z, -8.0f, 8.0f));
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -25.0f, 25.0f), Mathf.Clamp(transform.position.y, -8.0f, 8.0f), Mathf.Clamp(transform.position.z, -10.0f, 10.0f));
     }
+
     void SetAnimation(string name, bool loop, float speed)
     {
         if(name == cur_animation)
@@ -103,19 +98,44 @@ public class forblog : MonoBehaviour {
             cur_animation = name;
         }
     }
-    void OnTriggerStay(Collider other)
+    
+    void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "MOBATK")
+        if(other.CompareTag("DoorUp"))
         {
-            Debug.Log("으앙아픔");
-            StartCoroutine(MonsterAtk(other));
+            if(GameManager.Instance.doorHitUp == true)
+            {
+                Debug.Log("위로 충돌");
+                GameManager.Instance.Floor_M.transform.position +=  new Vector3(0, 0, -40.0f);
+                transform.position = new Vector3(0, 2.32f, -8.0f);
+            }
         }
-    }
-    public IEnumerator MonsterAtk(Collider coll)
-    {
-        coll.enabled = false;
-        yield return new WaitForSeconds(1.5f);
-        coll.enabled = true;
-        yield return new WaitForSeconds(1f);
+        if (other.CompareTag("DoorDown"))
+        {
+            if (GameManager.Instance.doorHitDown == true)
+            {
+                Debug.Log("아래로 충돌");
+                GameManager.Instance.Floor_M.transform.position += new Vector3(0, 0, 40.0f);
+                transform.position = new Vector3(0, 2.32f, 8.0f);
+            }
+        }
+        if (other.CompareTag("DoorRight"))
+        {
+            if (GameManager.Instance.doorHitRight == true)
+            {
+                Debug.Log("오른쪽으로 충돌");
+                GameManager.Instance.Floor_M.transform.position += new Vector3(-70.0f, 0, 0);
+                transform.position = new Vector3(-20.0f, 2.32f, 0);
+            }
+        }
+        if (other.CompareTag("DoorLeft"))
+        {
+            if (GameManager.Instance.doorHitLeft == true)
+            {
+                Debug.Log("왼쪽으로 충돌");
+                GameManager.Instance.Floor_M.transform.position += new Vector3(70.0f, 0, 0);
+                transform.position = new Vector3(20.0f, 2.32f, 0);
+            }
+        }
     }
 }

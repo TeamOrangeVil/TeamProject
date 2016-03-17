@@ -4,8 +4,6 @@ using System.Collections;
 static class Constancts//#define대신 ㅋ
 {
     //전처리할 내용을 넣어주세요 -> public const 형태 이름;
-    public const string body01 = "shop_img02";
-    public const string body02 = "stake-";
 }
 public class Monster : MonoBehaviour
 {
@@ -15,15 +13,8 @@ public class Monster : MonoBehaviour
 
     public SkeletonAnimation monsterAnimation;//spine 애니메이션
     private string curAnimation = "";//현재 실행중인 애니메이션
-    public Sprite[] sprite;//이미지 교체를 위해
-    [SpineSlot]
-    public string slot;//교체될 이미지가들어갈 슬롯
-    [SpineSkin]
-    public string skin;//애니 본에 씌움
 
-    public Collider atkColl;//공격 콜리더
-    public Collider defColl;//쳐맞 콜리더
-    public GameObject monsterGen;//몹 생성기
+    public Collider coll;//공격 피격 등, 충돌 여부 판단     
     private NavMeshAgent nvAgent;//추적을 위한 네비
     private Transform monsterTr;//몹 자신의 위치
     public Transform playerTr;//플레이어 위치
@@ -40,20 +31,15 @@ public class Monster : MonoBehaviour
     private float tPosition;//목표 방향
     private bool isDie = false;//몬스터 행동여부
     private bool isFly = false;//몬스터 비행여부
-    public bool isAtk = false;//몬스터 공격판정
     // Use this for initialization
     void Start()
     {
-        var SkeletonRender = GetComponent<SkeletonRenderer>();
-        var attachMent = SkeletonRender.skeleton.Data.AddUnitySprite(slot, sprite[0], skin);
-        SkeletonRender.skeleton.SetAttachment(slot, sprite[0].name);
         playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();//플레이어 위치 가져옴
         monsterTr = GetComponent<Transform>();//내 위치정보 가져옴
-        monsterGen = GameObject.Find("MonsterGenerator");
-        nvAgent = GetComponent<NavMeshAgent>();//네비는 몬스터의 매시에이전트
+        nvAgent = GetComponentInChildren<NavMeshAgent>();//네비는 몬스터의 매시에이전트
         nvAgent.destination = playerTr.position;//네비가 가리키는 목표는 플레이어
-        atkColl = GetComponentInChildren<Collider>();//자식오브젝트에 있는 공격 콜리더 가져옴
-        //atkColl.enabled = false;
+        coll = GetComponentInChildren<Collider>();
+        //coll.enabled = false;
 
         if (this.transform.position.x > playerTr.position.x)
         {
@@ -65,15 +51,15 @@ public class Monster : MonoBehaviour
         }
         StartCoroutine(MonsterAction());
         StartCoroutine(MonsterStateCheck());
-        //nvAgent.
+        nvAgent.Stop();
 
     }
     // Update is called once per frame
     void Update()
     {
-        /*if (atkColl.enabled == true)
+        /*if (coll.enabled == true)
         {
-            atkColl.enabled = false;
+            coll.enabled = false;
         }*/
 
     }
@@ -101,6 +87,7 @@ public class Monster : MonoBehaviour
                     {
                         this.transform.rotation = Quaternion.Euler(0, 180, 0);
                     }
+                    nvAgent.Stop();
                     break;
                 case MonsterState.DIE:
                     nvAgent.Stop();
@@ -121,7 +108,7 @@ public class Monster : MonoBehaviour
                     nvAgent.Stop();
                     break;
                 case MonsterState.ATK:
-                    atkColl.enabled = false;
+                    coll.enabled = false;
                     if (this.transform.position.x > playerTr.position.x)
                     {
                         this.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -147,7 +134,6 @@ public class Monster : MonoBehaviour
                 monsterState = MonsterState.ATK;
                 //공격 에니 set할것
                 //박스 알아서 만들어
-                Beated();
                 SetAnimation("test", true, 1.0f);
             }
             else if (dist <= traceDist)
@@ -164,9 +150,9 @@ public class Monster : MonoBehaviour
     }
     public IEnumerator MonsterAtk()
     {
-        atkColl.enabled = true;
+        coll.enabled = true;
         yield return new WaitForSeconds(1);
-        atkColl.enabled = false;
+        coll.enabled = false;
     }
     public void SetAnimation(string name, bool loop, float speed)//스켈레톤 애니 세팅 이름,루프여부,재생속도
     {
@@ -176,7 +162,7 @@ public class Monster : MonoBehaviour
         }
         else if(name=="test")
         {
-            atkColl.enabled = false;
+            coll.enabled = false;
             StartCoroutine(MonsterAtk());
             monsterAnimation.state.SetAnimation(0, name, loop).timeScale = speed;
             curAnimation = name;
@@ -193,9 +179,7 @@ public class Monster : MonoBehaviour
     }
     public void Beated()//몬스터가 맞을때마다 실행하는 경직 애니 함수
     {
-        var SkeletonRender = GetComponent<SkeletonRenderer>();
-        var attachMent = SkeletonRender.skeleton.Data.AddUnitySprite(slot, sprite[1], skin);
-        SkeletonRender.skeleton.SetAttachment(slot, sprite[1].name);
+
     }
   
 }

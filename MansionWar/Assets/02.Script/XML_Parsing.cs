@@ -15,14 +15,13 @@ public class Monster_Info//데이터 로드 리스트 정의
 
 public class XML_Parsing : MonoBehaviour
 {
-    string path;
+    static string path = Application.streamingAssetsPath + "/Monsters_db_Test.xml";//xml파일 경로
     public List<Monster_Info> monsters = new List<Monster_Info>();
 
     // Use this for initialization
     void Awake()
     {
-        path = Application.streamingAssetsPath + "/Monsters_db_Test.xml";//xml파일 경로
-        //monsters = Read(path);//시작시 리스트에 xml데이터를 넣는다.
+        monsters = Read(path);//시작시 리스트에 xml데이터를 넣는다.
     }
 
     // Update is called once per frame
