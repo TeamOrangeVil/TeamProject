@@ -5,8 +5,8 @@ using System.Collections.Generic;
 static class MonsterGenratiorConstancts//#define대신 ㅋ
 {
     //전처리할 내용을 넣어주세요 -> public const 형태 이름;
-    public const int MAXMONSTER = 5;
-    public const string mobDbXml = "/MonsterDB.xml";
+    public const int MAXMONSTER = 1;
+
 }
 public class Monster_Genratior : MonoBehaviour
 {
@@ -19,12 +19,11 @@ public class Monster_Genratior : MonoBehaviour
 	void Awake()
     {
         xmlParsing = GetComponent<XML_Parsing>();
-        monstersList = xmlParsing.Read(Application.streamingAssetsPath + MonsterGenratiorConstancts.mobDbXml);
+        monstersList = xmlParsing.Read(Application.streamingAssetsPath + "/Monsters_db_Test.xml");
         for (int i = 0; i < 2; i++)//프리팹 id순서대로 초기화, 추후 더 나은방법 찾을것!
         {
-            monsterPrefabs[i].GetComponent<Monster>().Insert(monstersList[i].ID,
-                monstersList[i].Name, monstersList[i].kName, monstersList[i].Etype, monstersList[i].type,
-                monstersList[i].Hp, monstersList[i].Atk,monstersList[i].Spd,monstersList[i].Acc,monstersList[i].AtkSpd);
+            monsterPrefabs[i].GetComponent<Monster>().Insert(monstersList[i].id,
+                monstersList[i].name, monstersList[i].hp, monstersList[i].atk);
         }
     }
     void Start()
@@ -44,5 +43,9 @@ public class Monster_Genratior : MonoBehaviour
                 
         yield return new WaitForSeconds(2.5f);
         }
+    }
+    public void MonsterCountDown()//몬스터가 죽을때 몬스터 스크립트에서 개채수 조절을위해 사용합니다.
+    {
+        nowMonster--;
     }
 }

@@ -5,9 +5,10 @@ public class BackgroundOffset : MonoBehaviour {
     public Renderer rend;
     public Transform pTr;
     public float h = 0.0f;
-    public float speed = 1.0f;
-    public float offset = 0.0f;
-
+    public float speed = 20.0f;
+    public float ind;
+    public float test=0.0f;
+    public float test1 = 1.0f;
     void Awake()
     {
         rend = GetComponent<Renderer>();
@@ -16,21 +17,20 @@ public class BackgroundOffset : MonoBehaviour {
     void Update()
     {
         h = Input.GetAxis("Horizontal");
+        ind = Mathf.Clamp01(1.0f);
 
         if (h > 0)
         {
-            offset += Time.deltaTime * speed;
             //rend.material.mainTextureOffset = new Vector2(ofs, 0);
-            transform.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(offset, 0);
-          
+            transform.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(Time.time*0.5f, 0);
 
         }
-        if (h<0)
+
+        if(h<0)
         {
-            offset += Time.deltaTime * speed;
             //rend.material.mainTextureOffset = new Vector2(ofs, 0);
-            transform.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(-offset, 0);
-            
+            transform.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(-Time.time*0.5f, 0);
+
         }
         
     }
