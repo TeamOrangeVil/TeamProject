@@ -9,9 +9,11 @@ EditorBuildSettings:
     path: Assets/01.Scene/Intro.unity
   - enabled: 1
     path: Assets/01.Scene/Main.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/01.Scene/LoadTest1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/01.Scene/AsyncTest1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/01.Scene/AsyncTest2.unity
+  - enabled: 1
+    path: Assets/01.Scene/GameUI.unity

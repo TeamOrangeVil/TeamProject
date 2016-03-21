@@ -6,7 +6,6 @@ static class MonsterGenratiorConstancts//#define대신 ㅋ
 {
     //전처리할 내용을 넣어주세요 -> public const 형태 이름;
     public const int MAXMONSTER = 1;
-
 }
 public class Monster_Genratior : MonoBehaviour
 {
@@ -43,9 +42,5 @@ public class Monster_Genratior : MonoBehaviour
                 
         yield return new WaitForSeconds(2.5f);
         }
-    }
-    public void MonsterCountDown()//몬스터가 죽을때 몬스터 스크립트에서 개채수 조절을위해 사용합니다.
-    {
-        nowMonster--;
     }
 }
