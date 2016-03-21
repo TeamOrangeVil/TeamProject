@@ -4145,7 +4145,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1037999324}
   PlayerHand: {fileID: 370461414}
-  MyWeapon: {fileID: 0}
+  MyWeapon:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  NowWeapon: {fileID: 0}
   temp: {fileID: 0}
   Coll: {fileID: 0}
   bindName: 

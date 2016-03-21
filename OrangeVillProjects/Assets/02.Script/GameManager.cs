@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    //
     public Collider colliderUp;
     public Collider colliderDown;
     public Collider colliderRight;

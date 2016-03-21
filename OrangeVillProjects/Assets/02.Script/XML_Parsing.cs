@@ -10,13 +10,15 @@ using UnityEditor;
 
 static class XmlConstancts
 {
-    //전처리할 내용을 넣어주세요 -> public const 형태 이름;
+    //전처리할 내용을 넣어주세요 -s> public const 형태 이름;
     //xml 관련해서 사용할 전처리입니다.
     public const string MOBDBXML =      "/MonsterDB.xml";
     public const string MOBXMLNODE =    "MonsterInfo/Monster";
     public const string playerDbXml =   "/Player_db_Test.xml";
     public const string OBJBINDXML =    "/ObjBindDB.xml";
     public const string BINDXMLNODE =   "BindInfo/Bind";
+    public const string QUESTINFOXML =  "";
+    public const string QUESTDIALOG =   "";
 }
 
 [System.Serializable]
@@ -31,8 +33,20 @@ public class PlayerInfo //xml로 불러올 몬스터의 정보를 저장할 클�
     public float atk;
     [XmlElement("def")]
     public float def;
+    //[XmlElement("def")]
+    //public float def;
+    //[XmlElement("def")]
+    //public float def;
+    //[XmlElement("def")]
+    //public float def;
 }
-
+public class Quest_Info//퀘스트 항목을 정의합니다.
+{
+    public string QuestID;
+    public string Unlock_Condition;
+    public int QueProgress;
+    //public 
+}
 public class Monster_Info//데이터 로드 리스트 정의
 {
     public string ID;
