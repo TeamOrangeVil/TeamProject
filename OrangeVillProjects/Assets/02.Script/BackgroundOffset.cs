@@ -16,7 +16,7 @@ public class BackgroundOffset : MonoBehaviour {
     void Update()
     {
         h = Input.GetAxis("Horizontal");
-
+        
         if (h > 0)
         {
             offset += Time.deltaTime * speed;
