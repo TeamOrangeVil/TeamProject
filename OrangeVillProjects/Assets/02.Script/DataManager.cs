@@ -13,6 +13,10 @@ public class DataManager : MonoBehaviour {
     public float fadeSpeed = 0.05f;
     public float fadeFloat = 1.0f;
 
+    public float timer = 0.0f;
+
+    public UILabel labelTest;
+
     private static DataManager gInstance = null;
 
     public static DataManager Instance
@@ -37,12 +41,37 @@ public class DataManager : MonoBehaviour {
 
     void FixedUpdate()
     {
+        timer += Time.deltaTime;
+
+        if(timer<1)
+        {
+            Debug.Log("timer : " + timer);
+            Debug.Log("alpha : " + test.alpha);
+            test.alpha += 0.06f;
+        }
+        else if(timer>0)
+        {
+            Debug.Log("timer : " + timer);
+            Debug.Log("alpha : " + test.alpha);
+            test.alpha -= 0.06f;
+        }
+
+        //else if (timer)
+        /*
+        if(test.alpha > 0)
+        {
+            test.alpha += 0.05f;
+        }
+        else if( test.alpha < 1)
+        {
+
+        }
         for (fadeFloat = 1.0f; fadeFloat >= 0; fadeFloat -= fadeSpeed*Time.deltaTime)
         {
             Debug.Log(test.alpha);
             
             test.alpha -= fadeSpeed;
-        }
+        }*/
     }
 
     //IEnumerator Fade()

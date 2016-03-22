@@ -12,13 +12,15 @@ static class XmlConstancts
 {
     //전처리할 내용을 넣어주세요 -s> public const 형태 이름;
     //xml 관련해서 사용할 전처리입니다.
-    public const string MOBDBXML =      "/MonsterDB.xml";
-    public const string MOBXMLNODE =    "MonsterInfo/Monster";
-    public const string playerDbXml =   "/Player_db_Test.xml";
-    public const string OBJBINDXML =    "/ObjBindDB.xml";
-    public const string BINDXMLNODE =   "BindInfo/Bind";
-    public const string QUESTINFOXML =  "";
-    public const string QUESTDIALOG =   "";
+    public const string PLAYINFOXML = "/Player_db_Test.xml";
+    public const string MOBDBXML = "/MonsterDB.xml";
+    public const string MOBXMLNODE = "MonsterInfo/Monster";
+    public const string OBJBINDXML = "/ObjBindDB.xml";
+    public const string BINDXMLNODE = "BindInfo/Bind";
+    public const string QUESTINFOXML = "/ObjBindDB.xml";
+    public const string QUESTINFONODE = "BindInfo/Bind";
+    public const string QUESTDIALOGXML = "/Quest_Progress.xml";
+    public const string QUESTDIALOGNODE = "Quest_Progress/Progress";
 }
 
 [System.Serializable]
@@ -46,6 +48,15 @@ public class Quest_Info//퀘스트 항목을 정의합니다.
     public string Unlock_Condition;
     public int QueProgress;
     //public 
+}
+public class Quest_Progress//대사 처리
+{
+    public string QuestID;//퀘스트 번호
+    public string ScriptReq;//퀘스트 줄때
+    public string ScriptYes;//수락시
+    public string ScriptNo;//거절시
+    public string ScriptProgress;//진행중
+    public string ScriptPer;//완료
 }
 public class Monster_Info//데이터 로드 리스트 정의
 {
@@ -125,7 +136,7 @@ public class XML_Parsing : MonoBehaviour
             m_Info.AtkSpd = float.Parse(xn["AtkSpeed"].InnerText);
             tempList.Add(m_Info);
         }
-        return tempList;        
+        return tempList;
     }
     public Bind_Info BindDBRead(string path, string id)
     {
@@ -147,6 +158,29 @@ public class XML_Parsing : MonoBehaviour
                 Debug.Log("아직 못찾음");
         }
         return bind_info;
+    }
+    public Quest_Progress QuestProgressRead(string path, string id)
+    {
+        Quest_Progress Progress_info = new Quest_Progress();
+        XmlDocument Document = new XmlDocument();
+        Document.Load(path);
+        XmlElement KeyList = Document.DocumentElement;
+        XmlNodeList Nodes = Document.SelectNodes(XmlConstancts.BINDXMLNODE);
+        foreach (XmlNode xn in Nodes)
+        {
+            Quest_Progress temp_info = new Quest_Progress();
+            temp_info.QuestID = xn["Quest"].InnerText;
+            temp_info.ScriptReq = xn["Script_Req"].InnerText;
+            temp_info.ScriptYes = xn["Script_Yes"].InnerText;
+            temp_info.ScriptNo = xn["Script_No"].InnerText;
+            temp_info.ScriptProgress = xn["Script_Progress"].InnerText;
+            temp_info.ScriptPer = xn["Script_Per"].InnerText;
+            if (temp_info.QuestID == id)
+                Progress_info = temp_info;
+            else
+                Debug.Log("아직 못찾음");
+        }
+        return Progress_info;
     }
     public List<Bind_Info> BindDBListRead(string path)
     {

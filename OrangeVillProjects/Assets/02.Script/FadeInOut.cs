@@ -65,7 +65,7 @@ public class FadeInOut : MonoBehaviour {
             {
                 if (Input.anyKey)
                 {
-                    SceneManager.LoadScene("Main");
+                    SceneManager.LoadScene("GameUI");
                 }
                 uipanel1.alpha = i;
                 yield return 0;
@@ -74,7 +74,8 @@ public class FadeInOut : MonoBehaviour {
             {
                 if (Input.anyKey)
                 {
-                    SceneManager.LoadScene("Main");
+                    SceneManager.LoadScene("GameUI");
+
                 }
                 uipanel1.alpha = i;
                 yield return 0;

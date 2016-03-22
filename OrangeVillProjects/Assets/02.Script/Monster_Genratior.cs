@@ -13,9 +13,9 @@ public class Monster_Genratior : MonoBehaviour
     List<Monster_Info> monstersList = new List<Monster_Info>();//외부에서 몬스터 정보를 읽어오기위해 선언
     public GameObject[] monsterPrefabs;//몬스터 종류
     public Transform[] points;//몬스터 스폰 위치
-    int nowMonster=0;
+    int nowMonster = 0;
     // Use this for initialization
-	void Awake()
+    void Awake()
     {
         xmlParsing = GetComponent<XML_Parsing>();
         monstersList = xmlParsing.Read(Application.streamingAssetsPath + XmlConstancts.MOBDBXML);
@@ -23,7 +23,7 @@ public class Monster_Genratior : MonoBehaviour
         {
             monsterPrefabs[i].GetComponent<Monster>().Insert(monstersList[i].ID,
                 monstersList[i].Name, monstersList[i].kName, monstersList[i].Etype, monstersList[i].type,
-                monstersList[i].Hp, monstersList[i].Atk,monstersList[i].Spd,monstersList[i].Acc,monstersList[i].AtkSpd);
+                monstersList[i].Hp, monstersList[i].Atk, monstersList[i].Spd, monstersList[i].Acc, monstersList[i].AtkSpd);
         }
     }
     void Start()
@@ -34,7 +34,7 @@ public class Monster_Genratior : MonoBehaviour
     IEnumerator MonsterGen()
     {
         while (true) { 
-            int idx = Random.Range(0, 1);
+            int idx = Random.Range(0, 2);
             if(nowMonster < MonsterGenratiorConstancts.MAXMONSTER)
             {
                 Instantiate(monsterPrefabs[idx], points[idx].position, Quaternion.identity);

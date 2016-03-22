@@ -8,7 +8,6 @@ public class test : MonoBehaviour {
 
     void Start()
     {
-
     }
     void Update()
     {

@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-static class MonsterMonsterConstancts
+static class Constancts//#define대신 ㅋ
 {
     //전처리할 내용을 넣어주세요 -> public const 형태 이름;
-    public const string body01 = "shop_img02";
-    public const string body02 = "stake-";
+    //public const string body01 = "shop_img02";
+    //public const string body02 = "stake-";
 }
 public class Monster : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
 
     public SkeletonAnimation monsterAnimation;//spine 애니메이션
     private string curAnimation = "";//현재 실행중인 애니메이션
+
     public Sprite[] sprite;//이미지 교체를 위해
     [SpineSlot]
     public string slot;//교체될 이미지가들어갈 슬롯
@@ -72,11 +73,13 @@ public class Monster : MonoBehaviour
         }
         StartCoroutine(MonsterAction());
         StartCoroutine(MonsterStateCheck());
+        
 
     }
+
     //몬스터 정보를 외부에서 초기화 하기위한 함수입니다.
-    public void Insert(string i_id, string i_name, string i_kname,int i_etype,int i_type,
-        int i_hp, int i_atk, float i_spd, float i_acc, float i_atkspd)
+    public void Insert(string i_id, string i_name, string i_kname, int i_etype, int i_type,
+         int i_hp, int i_atk, float i_spd, float i_acc, float i_atkspd)
     {
         ID = i_id;
         Name = i_name;
@@ -92,7 +95,7 @@ public class Monster : MonoBehaviour
     //몬스터의 행동을 위한 코루틴 함수입니다.
     IEnumerator MonsterAction()
     {//NavMeshAgent는 2d에서 몬써먹나?
-        while (!isDie)
+        while (!GameManager.Instance.isDie)
         {
             switch (monsterState)
             {
@@ -104,17 +107,18 @@ public class Monster : MonoBehaviour
                     else if (this.transform.position.x < playerTr.position.x)
                     {
                         this.transform.rotation = Quaternion.Euler(0, 180, 0);
-                    }*/
+                    }
+                    nvAgent.Stop();*/
                     break;
                 case MonsterState.DIE:
                     nvAgent.Stop();
                     break;
-                case MonsterState.TRACE:
+                case MonsterState.TRACE: 
                     if (this.transform.position.x > playerTr.position.x)
                     {
                         this.transform.rotation = Quaternion.Euler(0, 0, 0);
                     }
-                    else if (this.transform.position.x <= playerTr.position.x)
+                    else if (this.transform.position.x < playerTr.position.x)
                     {
                         this.transform.rotation = Quaternion.Euler(0, 180, 0);
                     }
@@ -125,7 +129,7 @@ public class Monster : MonoBehaviour
                     nvAgent.Stop();
                     break;
                 case MonsterState.ATK:
-                    //atkColl.enabled = false;
+                    //coll.enabled = false;
                     if (this.transform.position.x > playerTr.position.x)
                     {
                         this.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -139,19 +143,18 @@ public class Monster : MonoBehaviour
             yield return null;
         }
     }
-    IEnumerator MonsterStateCheck()//행동의 변화를 주는 코루틴입니다.
+    IEnumerator MonsterStateCheck()
     {
-        while (!isDie)
+        while (!GameManager.Instance.isDie)
         {
             yield return new WaitForSeconds(0.5f);
             float dist = Vector3.Distance(playerTr.position, monsterTr.position);
             //if()쳐맞을때
-            if (dist <= attackDist)
+            if(dist <= attackDist)
             {
                 monsterState = MonsterState.ATK;
                 //공격 에니 set할것
                 //박스 알아서 만들어
-                //Beated();
                 SetAnimation("test", true, 1.0f);
             }
             else if (dist <= traceDist)
@@ -178,7 +181,7 @@ public class Monster : MonoBehaviour
         {
             return;
         }
-        else if (name == "test")
+        else if(name=="test")
         {
             //atkColl.enabled = false;
             //StartCoroutine(MonsterAtk());
@@ -187,7 +190,7 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            monsterAnimation.state.SetAnimation(0, name, loop).TimeScale = speed;
+            monsterAnimation.state.SetAnimation(0, name, loop).timeScale = speed;
             curAnimation = name;
         }
     }
@@ -201,5 +204,5 @@ public class Monster : MonoBehaviour
         var attachMent = SkeletonRender.skeleton.Data.AddUnitySprite(slot, sprite[1], skin);
         SkeletonRender.skeleton.SetAttachment(slot, sprite[1].name);
     }
-
+  
 }
