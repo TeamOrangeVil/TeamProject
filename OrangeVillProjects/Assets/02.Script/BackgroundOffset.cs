@@ -22,17 +22,13 @@ public class BackgroundOffset : MonoBehaviour {
             offset += Time.deltaTime * speed;
             //rend.material.mainTextureOffset = new Vector2(ofs, 0);
             transform.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(offset, 0);
-          
-
         }
         if (h<0)
         {
             offset += Time.deltaTime * speed;
             //rend.material.mainTextureOffset = new Vector2(ofs, 0);
             transform.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(-offset, 0);
-            
         }
-        
     }
 
     /*public Renderer rendMe;

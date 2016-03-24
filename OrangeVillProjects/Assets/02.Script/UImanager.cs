@@ -15,18 +15,3 @@ public class UImanager : MonoBehaviour {
         FollowCamera.instance.z = zMove;
     }
 }
-
-/*
- public GameObject InputBox;
-    UIInput uiinput;
-    string text;
-    float xMove;
-    public void getMessage()
-    {
-        uiinput = InputBox.GetComponent<UIInput>();
-        text = uiinput.label.text;
-        print(text);
-        xMove = float.Parse(text);
-        FollowCamera.instance.x = xMove;
-    }
-*/

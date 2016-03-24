@@ -2,14 +2,13 @@
 using System.Collections;
 
 public class FollowCamera : MonoBehaviour {
-    // 카메라가 바라볼 타겟
-    public Transform target;
-    //[Range(0,40)]
+    
+    public Transform target; // 카메라가 바라볼 타겟
+
     // 카메라의 X,Y 좌표를 넣을 변수
-    public float x=25f;
-    public float z=7f;
+    public float x=20f;
+    public float z=2.2f;
     public float trace=200.0f;
-    public Vector3 pin;
     private Transform tr;
 
     //싱글턴 패턴을 위한 인스턴스 변수 선언
@@ -34,10 +33,11 @@ public class FollowCamera : MonoBehaviour {
         //{
                                                                       // forward(0,0,1) 위아래   up(0,1,0) 카메라 높이
             tr.position = Vector3.Lerp(tr.position, target.position - (target.forward * x) + (Vector3.up * z), Time.deltaTime * trace);
-            tr.position = new Vector3(Mathf.Clamp(transform.position.x, -10.0f, 10.0f), Mathf.Clamp(transform.position.y, -5.0f, 17.0f), Mathf.Clamp(transform.position.z, -40.0f, -25.0f));
-            tr.localRotation = Quaternion.Euler(20, 0, 0);
+            tr.position = new Vector3(Mathf.Clamp(transform.position.x, -10.0f, 10.0f), Mathf.Clamp(transform.position.y, -5.0f, 17.0f), Mathf.Clamp(transform.position.z, -40.0f, -1.0f));
+            tr.localRotation = Quaternion.Euler(30, 0, 0);
             //카메라를 바라봄
             //tr.LookAt(target.position);
+        //Debug.Log(tr.transform.localRotation.x);
             //카메라 다운
         //}ws
         /*if(target.transform.position.x ==3)

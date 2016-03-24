@@ -13,7 +13,7 @@ public class ObjBind : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-        xmlParsing = GameObject.Find("MonsterGenerator").GetComponent<XML_Parsing>();
+        xmlParsing = GameObject.Find("GameManager").GetComponent<XML_Parsing>();
         Debug.Log(this.gameObject.name);
         
     }

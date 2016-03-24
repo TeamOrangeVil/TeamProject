@@ -17,9 +17,9 @@ static class XmlConstancts
     public const string MOBXMLNODE = "MonsterInfo/Monster";
     public const string OBJBINDXML = "/ObjBindDB.xml";
     public const string BINDXMLNODE = "BindInfo/Bind";
-    public const string QUESTINFOXML = "/ObjBindDB.xml";
-    public const string QUESTINFONODE = "BindInfo/Bind";
-    public const string QUESTDIALOGXML = "/Quest_Progress.xml";
+    public const string QUESTINFOXML = "/Quest_Info_Schmar.xml";
+    public const string QUESTINFONODE = "Quest_Info/Quest";
+    public const string QUESTDIALOGXML = "/Quest.xml";
     public const string QUESTDIALOGNODE = "Quest_Progress/Progress";
 }
 
@@ -44,10 +44,15 @@ public class PlayerInfo //xml로 불러올 몬스터의 정보를 저장할 클�
 }
 public class Quest_Info//퀘스트 항목을 정의합니다.
 {
-    public string QuestID;
-    public string Unlock_Condition;
-    public int QueProgress;
-    //public 
+    public int QuestID;//퀘스트 번호
+    public string Quest_NameK;//게임내에서 띄워줄 퀘스트 이름
+    public string QuestNpc;//퀘를 주는 npc이름
+    public int Unlock_Condition;//퀘스트 해재조건
+    public int QueProgress;//대사 처리순서
+    public string req_Item;//필요 조건
+    public int req_Howmach;//얼마나?
+    public int ResultExp;//보상 겸치
+    public int ResultGold;//보상 골드
 }
 public class Quest_Progress//대사 처리
 {
@@ -165,7 +170,7 @@ public class XML_Parsing : MonoBehaviour
         XmlDocument Document = new XmlDocument();
         Document.Load(path);
         XmlElement KeyList = Document.DocumentElement;
-        XmlNodeList Nodes = Document.SelectNodes(XmlConstancts.BINDXMLNODE);
+        XmlNodeList Nodes = Document.SelectNodes(XmlConstancts.QUESTDIALOGNODE);
         foreach (XmlNode xn in Nodes)
         {
             Quest_Progress temp_info = new Quest_Progress();
@@ -175,6 +180,31 @@ public class XML_Parsing : MonoBehaviour
             temp_info.ScriptNo = xn["Script_No"].InnerText;
             temp_info.ScriptProgress = xn["Script_Progress"].InnerText;
             temp_info.ScriptPer = xn["Script_Per"].InnerText;
+            if (temp_info.QuestID == id)
+                Progress_info = temp_info;
+            else
+                Debug.Log("아직 못찾음");
+        }
+        return Progress_info;
+    }
+    public Quest_Info QuestInfoRead(string path, int id)
+    {
+        Quest_Info Progress_info = new Quest_Info();
+        XmlDocument Document = new XmlDocument();
+        Document.Load(path);
+        XmlElement KeyList = Document.DocumentElement;
+        XmlNodeList Nodes = Document.SelectNodes(XmlConstancts.QUESTINFONODE);
+        foreach (XmlNode xn in Nodes)
+        {
+            Quest_Info temp_info = new Quest_Info();
+            temp_info.QuestID = int.Parse(xn["Quest_Code"].InnerText);
+            temp_info.Quest_NameK = xn["Quest_NameK"].InnerText;
+            temp_info.QuestNpc = xn["Quest_Npc"].InnerText;
+            temp_info.Unlock_Condition = int.Parse(xn["Quest_Unlock_Condition"].InnerText);
+            temp_info.req_Item = xn["req_Item"].InnerText;
+            temp_info.req_Howmach = int.Parse(xn["req_Howmach"].InnerText);
+            temp_info.ResultExp = int.Parse(xn["ResultExp"].InnerText);
+            temp_info.ResultGold = int.Parse(xn["ResultGold"].InnerText);
             if (temp_info.QuestID == id)
                 Progress_info = temp_info;
             else

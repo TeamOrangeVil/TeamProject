@@ -24,12 +24,13 @@ public class BindControl : MonoBehaviour {
         WeaponSwitcher = 0;
         Coll = GetComponent<Collider>();
         Coll.enabled = false;
-        xmlParsing = GameObject.Find("MonsterGenerator").GetComponent<XML_Parsing>();
+        xmlParsing = GameObject.Find("DataManager").GetComponent<XML_Parsing>();
         BindList = xmlParsing.BindDBListRead(Application.streamingAssetsPath + XmlConstancts.OBJBINDXML);
         PlayerHand = GameObject.Find("Hand").GetComponent<Transform>();
         MyWeapon = GetComponents<GameObject>();//배열임, 그래서 겟컴포넌s
         NowWeapon = GetComponent<GameObject>();
         BefoWeapon = GetComponent<GameObject>();
+
         for (int i = 0; i < BindList.Count; i++)
         {
             Debug.Log("리스트  " + BindList[i].ID);
@@ -85,7 +86,7 @@ public class BindControl : MonoBehaviour {
     {
         //나중에 거리별로 우선순위 매겨서 저장할 것
        
-        if (other.tag != "Monster" && isatk==false)
+        if (other.tag == "Object" && isatk==false)
         {//공격 x 몬스터 x
             bindName = other.name;
             BindSerch();
@@ -95,6 +96,7 @@ public class BindControl : MonoBehaviour {
         {//공격 o 몬스터 o
             Debug.Log("잡았다");
             other.gameObject.SetActive(false);
+            QuestManager.Instance.QuestIsClear(other.name);
         }
         
     }

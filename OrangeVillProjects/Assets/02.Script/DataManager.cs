@@ -32,12 +32,7 @@ public class DataManager : MonoBehaviour {
     {
         gInstance = this;
     }
-
-    void Start()
-    {
-        SceneManager.LoadScene("Main", LoadSceneMode.Additive);
-
-    }
+    
 
     void FixedUpdate()
     {
@@ -45,14 +40,14 @@ public class DataManager : MonoBehaviour {
 
         if(timer<1)
         {
-            Debug.Log("timer : " + timer);
-            Debug.Log("alpha : " + test.alpha);
+            //Debug.Log("timer : " + timer);
+            //Debug.Log("alpha : " + test.alpha);
             test.alpha += 0.06f;
         }
         else if(timer>0)
         {
-            Debug.Log("timer : " + timer);
-            Debug.Log("alpha : " + test.alpha);
+            //Debug.Log("timer : " + timer);
+            //Debug.Log("alpha : " + test.alpha);
             test.alpha -= 0.06f;
         }
 

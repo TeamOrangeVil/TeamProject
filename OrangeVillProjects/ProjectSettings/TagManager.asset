@@ -10,6 +10,10 @@ TagManager:
   - DoorRight
   - DoorLeft
   - Monster
+  - NPC
+  - WarPortal
+  - Object
+  - VillPortal
   layers:
   - Default
   - TransparentFX

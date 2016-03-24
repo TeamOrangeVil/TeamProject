@@ -55,7 +55,7 @@ public class Monster : MonoBehaviour
         var SkeletonRender = GetComponent<SkeletonRenderer>();
         //var attachMent = SkeletonRender.skeleton.Data.AddUnitySprite(slot, sprite[0], skin);
         //SkeletonRender.skeleton.SetAttachment(slot, sprite[0].name);
-        playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();//플레이어 위치 가져옴
+        playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();//GameManager.Instance.HitTr;//GameObject.FindWithTag("Player").GetComponent<Transform>();//플레이어 위치 가져옴
         monsterTr = GetComponent<Transform>();//내 위치정보 가져옴
         monsterGen = GameObject.Find("MonsterGenerator");
         nvAgent = GetComponent<NavMeshAgent>();//네비는 몬스터의 매시에이전트
@@ -95,7 +95,7 @@ public class Monster : MonoBehaviour
     //몬스터의 행동을 위한 코루틴 함수입니다.
     IEnumerator MonsterAction()
     {//NavMeshAgent는 2d에서 몬써먹나?
-        while (!GameManager.Instance.isDie)
+        while (!DungeunDoorManager.Instance.isDie)
         {
             switch (monsterState)
             {
@@ -145,7 +145,7 @@ public class Monster : MonoBehaviour
     }
     IEnumerator MonsterStateCheck()
     {
-        while (!GameManager.Instance.isDie)
+        while (!DungeunDoorManager.Instance.isDie)
         {
             yield return new WaitForSeconds(0.5f);
             float dist = Vector3.Distance(playerTr.position, monsterTr.position);
