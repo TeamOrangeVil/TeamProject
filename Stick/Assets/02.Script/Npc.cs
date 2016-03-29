@@ -1,0 +1,17 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Npc : MonoBehaviour {
+
+    Quest_Info[] Qinfo;
+
+    // Use this for initialization
+    void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+}

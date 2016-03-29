@@ -1,0 +1,188 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+눈
+  rotate: false
+  xy: 619, 654
+  size: 61, 35
+  orig: 61, 35
+  offset: 0, 0
+  index: -1
+눈썹
+  rotate: true
+  xy: 267, 114
+  size: 93, 47
+  orig: 93, 47
+  offset: 0, 0
+  index: -1
+머리
+  rotate: false
+  xy: 405, 811
+  size: 266, 201
+  orig: 266, 201
+  offset: 0, 0
+  index: -1
+목
+  rotate: false
+  xy: 673, 881
+  size: 172, 131
+  orig: 172, 131
+  offset: 0, 0
+  index: -1
+몸통
+  rotate: false
+  xy: 132, 2
+  size: 123, 95
+  orig: 136, 103
+  offset: 13, 0
+  index: -1
+무기
+  rotate: false
+  xy: 2, 575
+  size: 401, 437
+  orig: 464, 463
+  offset: 39, 26
+  index: -1
+배
+  rotate: true
+  xy: 405, 329
+  size: 131, 109
+  orig: 131, 109
+  offset: 0, 0
+  index: -1
+상체
+  rotate: false
+  xy: 405, 636
+  size: 212, 173
+  orig: 212, 173
+  offset: 0, 0
+  index: -1
+오른쪽 발목
+  rotate: false
+  xy: 520, 248
+  size: 42, 36
+  orig: 42, 36
+  offset: 0, 0
+  index: -1
+오른쪽 손
+  rotate: true
+  xy: 316, 132
+  size: 73, 96
+  orig: 73, 100
+  offset: 0, 4
+  index: -1
+오른쪽 신발
+  rotate: false
+  xy: 317, 207
+  size: 95, 111
+  orig: 108, 130
+  offset: 13, 0
+  index: -1
+오른쪽 어깨
+  rotate: true
+  xy: 516, 394
+  size: 109, 79
+  orig: 109, 79
+  offset: 0, 0
+  index: -1
+오른쪽 종아리
+  rotate: false
+  xy: 712, 721
+  size: 95, 96
+  orig: 102, 111
+  offset: 7, 6
+  index: -1
+오른쪽 팔1
+  rotate: true
+  xy: 619, 691
+  size: 118, 91
+  orig: 122, 98
+  offset: 4, 7
+  index: -1
+오른쪽 팔2
+  rotate: true
+  xy: 673, 819
+  size: 60, 138
+  orig: 67, 143
+  offset: 7, 5
+  index: -1
+오른쪽 허벅지
+  rotate: false
+  xy: 405, 462
+  size: 107, 172
+  orig: 107, 172
+  offset: 0, 0
+  index: -1
+왼쪽 발목
+  rotate: false
+  xy: 520, 286
+  size: 52, 44
+  orig: 56, 44
+  offset: 4, 0
+  index: -1
+왼쪽 손
+  rotate: false
+  xy: 2, 320
+  size: 401, 253
+  orig: 401, 253
+  offset: 0, 0
+  index: -1
+왼쪽 신발
+  rotate: false
+  xy: 132, 209
+  size: 183, 109
+  orig: 183, 109
+  offset: 0, 0
+  index: -1
+왼쪽 어깨
+  rotate: true
+  xy: 516, 332
+  size: 60, 90
+  orig: 60, 96
+  offset: 0, 2
+  index: -1
+왼쪽 종아리
+  rotate: true
+  xy: 414, 204
+  size: 123, 104
+  orig: 123, 111
+  offset: 0, 7
+  index: -1
+왼쪽 팔1
+  rotate: true
+  xy: 414, 135
+  size: 67, 109
+  orig: 67, 109
+  offset: 0, 0
+  index: -1
+왼쪽 팔2
+  rotate: false
+  xy: 514, 505
+  size: 109, 129
+  orig: 109, 129
+  offset: 0, 0
+  index: -1
+왼쪽 허벅지
+  rotate: false
+  xy: 847, 898
+  size: 152, 114
+  orig: 152, 114
+  offset: 0, 0
+  index: -1
+천1
+  rotate: false
+  xy: 132, 99
+  size: 133, 108
+  orig: 133, 108
+  offset: 0, 0
+  index: -1
+천2
+  rotate: false
+  xy: 2, 21
+  size: 128, 297
+  orig: 128, 297
+  offset: 0, 0
+  index: -1

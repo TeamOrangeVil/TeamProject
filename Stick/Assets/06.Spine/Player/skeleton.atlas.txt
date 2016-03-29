@@ -1,0 +1,139 @@
+
+skeleton.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+다리 2
+  rotate: false
+  xy: 696, 618
+  size: 571, 404
+  orig: 1000, 1000
+  offset: 46, 349
+  index: -1
+빈머리
+  rotate: true
+  xy: 1726, 506
+  size: 250, 266
+  orig: 1000, 1000
+  offset: 375, 369
+  index: -1
+뿌리
+  rotate: false
+  xy: 1231, 405
+  size: 196, 141
+  orig: 1000, 1000
+  offset: 400, 433
+  index: -1
+찌르기 손 1
+  rotate: false
+  xy: 317, 37
+  size: 106, 79
+  orig: 1000, 1000
+  offset: 420, 468
+  index: -1
+측면_머리
+  rotate: false
+  xy: 979, 204
+  size: 250, 266
+  orig: 1000, 1000
+  offset: 375, 369
+  index: -1
+측면_몸체
+  rotate: true
+  xy: 1269, 790
+  size: 232, 529
+  orig: 1000, 1000
+  offset: 386, 237
+  index: -1
+측면_발1
+  rotate: false
+  xy: 1429, 428
+  size: 176, 118
+  orig: 1000, 1000
+  offset: 413, 444
+  index: -1
+측면_발2
+  rotate: false
+  xy: 2, 20
+  size: 222, 96
+  orig: 1000, 1000
+  offset: 391, 453
+  index: -1
+측면_손2
+  rotate: true
+  xy: 226, 2
+  size: 114, 89
+  orig: 1000, 1000
+  offset: 447, 455
+  index: -1
+측면_종아리1
+  rotate: true
+  xy: 1269, 548
+  size: 240, 455
+  orig: 1000, 1000
+  offset: 381, 268
+  index: -1
+측면_종아리2
+  rotate: true
+  xy: 696, 472
+  size: 144, 466
+  orig: 1000, 1000
+  offset: 430, 267
+  index: -1
+측면_팔1
+  rotate: false
+  xy: 1800, 758
+  size: 241, 264
+  orig: 1000, 1000
+  offset: 379, 367
+  index: -1
+측면_팔2
+  rotate: true
+  xy: 596, 136
+  size: 176, 329
+  orig: 1000, 1000
+  offset: 409, 334
+  index: -1
+측면_팔뚝1
+  rotate: false
+  xy: 1231, 247
+  size: 152, 156
+  orig: 1000, 1000
+  offset: 419, 422
+  index: -1
+측면_팔뚝2
+  rotate: true
+  xy: 1385, 237
+  size: 166, 123
+  orig: 1000, 1000
+  offset: 417, 438
+  index: -1
+측면_허벅지1
+  rotate: true
+  xy: 596, 314
+  size: 156, 381
+  orig: 1000, 1000
+  offset: 423, 314
+  index: -1
+측면_허벅지2
+  rotate: false
+  xy: 2, 118
+  size: 592, 409
+  orig: 1000, 1000
+  offset: 46, 344
+  index: -1
+칼
+  rotate: false
+  xy: 2, 529
+  size: 692, 493
+  orig: 1000, 1000
+  offset: 150, 219
+  index: -1
+피격 얼굴
+  rotate: true
+  xy: 1164, 554
+  size: 62, 89
+  orig: 62, 90
+  offset: 0, 0
+  index: -1
