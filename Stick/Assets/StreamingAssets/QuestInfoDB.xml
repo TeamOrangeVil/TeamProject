@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Quest_Info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Quest>
+		<Quest_Code>1</Quest_Code>
+		<Quest_NameK>돌이 필요해!</Quest_NameK>
+		<Quest_Npc>Chonjang</Quest_Npc>
+		<Quest_Type>1</Quest_Type>
+		<Quest_Unlock_Condition>0</Quest_Unlock_Condition>
+		<req_Target>Mons_001</req_Target>
+		<req_Howmach>1</req_Howmach>
+		<ResultExp>10</ResultExp>
+		<ResultGold>10</ResultGold>
+	</Quest>
+	<Quest>
+		<Quest_Code>2</Quest_Code>
+		<Quest_NameK>잡아와!</Quest_NameK>
+		<Quest_Npc>Chonjang</Quest_Npc>
+		<Quest_Type>2</Quest_Type>
+		<Quest_Unlock_Condition>1</Quest_Unlock_Condition>
+		<req_Target>Chonjang</req_Target>
+		<req_Howmach>1</req_Howmach>
+		<ResultExp>10</ResultExp>
+		<ResultGold>10</ResultGold>
+	</Quest>
+</Quest_Info>
+	
