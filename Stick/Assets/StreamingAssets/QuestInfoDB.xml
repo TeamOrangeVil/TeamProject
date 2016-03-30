@@ -6,7 +6,7 @@
 		<Quest_Npc>Chonjang</Quest_Npc>
 		<Quest_Type>1</Quest_Type>
 		<Quest_Unlock_Condition>0</Quest_Unlock_Condition>
-		<req_Target>Mons_001</req_Target>
+		<req_Target>Goblin</req_Target>
 		<req_Howmach>1</req_Howmach>
 		<ResultExp>10</ResultExp>
 		<ResultGold>10</ResultGold>

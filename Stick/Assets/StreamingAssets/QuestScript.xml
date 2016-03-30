@@ -2,14 +2,12 @@
 <Quest_Progress xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Progress>
 		<Quest>Quest_1</Quest>
-		<Script_Req>곡괭이를 잃어버려서 그러는데
-		두번째 스테이지에 있는 광석을 캐서 가져다줘.</Script_Req>
-		<Script_Yes>고마워! 혹시 곡괭이가 없니? 나도 잃어버려서 말이야...
-		오우거의 뿔이 단단해 보이던데 그녀석의 뿔을 한 번 이용해봐.</Script_Yes>
+		<Script_Req>고블린이 날뛰고 있어
+		고블린을 처리해줘.</Script_Req>
+		<Script_Yes>고마워!</Script_Yes>
 		<Script_No>치사하네.</Script_No>
-		<Script_Progress>아직 못구했어?
-		오우거의 뿔이 단단해 보이던데 그녀석의 뿔을 한 번 이용해봐.</Script_Progress>
-		<Script_Per>구해왔구나? 수고했어.</Script_Per>
+		<Script_Progress>아직이야? 고블린은 마을 밖에 나가면 있어</Script_Progress>
+		<Script_Per>수고했어.</Script_Per>
 	</Progress>
 	<Progress>
 		<Quest>Quest_2</Quest>

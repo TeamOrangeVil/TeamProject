@@ -44,8 +44,15 @@ public class PlayerControl : MonoBehaviour {
     public int WeaponSwitcher;//배열 이동을 위해 설정
     List<Bind_Info> BindList = new List<Bind_Info>();
 
+    public float combo = 0.0f;
+
     private StringBuilder sb;
 
+    public GameObject hitEffect;
+
+    //public UIProgressBar HpBar1;
+
+    public UISlider HpBar2;
     //public GameObject[] Slots = new GameObject[3];
 
     private static PlayerControl gInstance = null;
@@ -86,6 +93,34 @@ public class PlayerControl : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if(combo!=0)
+        {
+            Debug.Log("복귀!");
+            ComboInit();
+        }
+
+        //공격
+        
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                //limit_move = true;
+                //Player.state.SetAnimation(1, "attack 1", false);
+                //SetAnimation("attack 1", true, 1.0f);
+                //isatk = true;
+                //limit_move = true;
+                //StartCoroutine(Combo1());
+                StartCoroutine(ComboCollAction());
+                
+            }
+
+        /*if(combo ==1)
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                //StartCoroutine(Combo3());
+                StartCoroutine(ComboCollAction());
+            }
+        }*/
         if (!limit_move) //움직임이 제한되지 않을 경우
         {
             h = Input.GetAxis("Horizontal");
@@ -95,11 +130,13 @@ public class PlayerControl : MonoBehaviour {
             if (textPanel.isActiveAndEnabled == true) { communicationCheck = true; }
             if (textPanel.isActiveAndEnabled == false) { communicationCheck = false; }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            //조합키
+            if (Input.GetKeyDown(KeyCode.T))
             {
-                isJump = false;
-                TransformLimit();
+                StartCoroutine(CollAction());
             }
+           
+
             if (h > 0) //만약 h 값이 0보다 클 경우
             {
 
@@ -139,60 +176,50 @@ public class PlayerControl : MonoBehaviour {
             else if (v > 0) { if (communicationCheck == false) { TransformLimit(); } SetAnimation("Walk", true, 1.0f); }
             else if (v < 0) { if (communicationCheck == false) { TransformLimit(); } SetAnimation("Walk", true, 1.0f); }
             else { SetAnimation("STAY", true, 1.0f); }
-        }
 
-        //조합키
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            StartCoroutine(CollAction());
-        }
-        //공격
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
             
-            isatk = true;
-            limit_move = true;
-            StartCoroutine(CollAction());
-        }
-        
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            if(inventoryPanel.activeInHierarchy == true)
-            {
-                inventoryPanel.SetActive(false);
-            }
-            else
-            {
-                inventoryPanel.SetActive(true);
-            }
 
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                if (inventoryPanel.activeInHierarchy == true)
+                {
+                    inventoryPanel.SetActive(false);
+                }
+                else
+                {
+                    inventoryPanel.SetActive(true);
+                }
+
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
 
                 BefoWeapon = NowWeapon;
                 NowWeapon = MyWeapon[0];
                 MyWeapon[0] = BefoWeapon;
                 BefoWeapon = null;
                 InvenChanger(MyWeapon[0].name, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
                 BefoWeapon = NowWeapon;
                 NowWeapon = MyWeapon[1];
                 MyWeapon[1] = BefoWeapon;
                 BefoWeapon = null;
                 InvenChanger(MyWeapon[1].name, 1);
 
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
                 BefoWeapon = NowWeapon;
                 NowWeapon = MyWeapon[2];
                 MyWeapon[2] = BefoWeapon;
                 BefoWeapon = null;
                 InvenChanger(MyWeapon[2].name, 2);
+            }
         }
+
+        
     }
     // 캐릭터 움직임 관련
     public void TransformLimit() 
@@ -284,12 +311,17 @@ public class PlayerControl : MonoBehaviour {
             NowWeapon = Instantiate(Resources.Load(temp.NowWeapon), PlayerHand.position, Quaternion.Euler(0, 0, 0)) as GameObject;
         }
 
-        if (other.CompareTag("Monster")) // 몬스터에게 타격 당할 시 체력 감소
+        if (other.CompareTag("MobAtk")) // 몬스터에게 타격 당할 시 체력 감소
         {
+            Debug.Log("아야");
+            Player.state.SetAnimation(0, "Hit", false);
+            hitEffect.SetActive(true);
             //HpBar1.fillAmount -= 1f;
             //HpBar.fillDirection -= 1f;
             //HpBar.value -= 1.0f;
             //DataManager.Instance.HpBar.value -= 0.1f;
+            //HpBar1.value -= 0.1f;
+            HpBar2.value -= 0.1f;
         }
 
         if (other.CompareTag("NPC"))//npc에게 말건 경우
@@ -304,11 +336,79 @@ public class PlayerControl : MonoBehaviour {
     IEnumerator CollAction()//콜리더 온오프
     {
         Coll.enabled = true;
-        yield return new WaitForSeconds(0.05f);
+        //yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(1.5f);
         if (isatk == true)
             isatk = false;
         Coll.enabled = false;
         limit_move = false;
-        SetAnimation("attack 1", true, 1.0f);
+        //SetAnimation("attack 1", true, 1.0f);
+    }
+    IEnumerator ComboCollAction()
+    {
+        limit_move = true;
+        Player.state.SetAnimation(0, "attack 1", false);
+        isatk = true;
+        
+        yield return new WaitForSeconds(1.0f);
+        Player.state.SetAnimation(0, "attack 2", false);
+        yield return new WaitForSeconds(1.0f);
+        Player.state.SetAnimation(0, "attack 3", false);
+        limit_move = false;
+    }
+    IEnumerator Combo1()
+    {
+        limit_move = true;
+        Player.state.SetAnimation(1, "attack 1", false);
+        isatk = true;
+
+        yield return new WaitForSeconds(1.0f);
+        combo += 1;
+        isatk = false;
+        limit_move = false;
+    }
+    IEnumerator Combo2()
+    {
+        limit_move = true;
+        Player.state.SetAnimation(1, "attack 2", false);
+        isatk = true;
+
+        yield return new WaitForSeconds(1.0f);
+        isatk = false;
+        limit_move = false;
+    }
+    IEnumerator Combo3()
+    {
+        limit_move = true;
+        Player.state.SetAnimation(1, "attack 3", false);
+        isatk = true;
+
+        yield return new WaitForSeconds(1.0f);
+        isatk = false;
+        limit_move = false;
+    }
+    IEnumerator ComboInit()
+    {
+        Debug.Log("콤보1");
+        yield return new WaitForSeconds(1.0f);
+        combo = 0;
+       /* if(combo == 1)
+        {
+            Debug.Log("콤보1");
+            yield return new WaitForSeconds(1.0f);
+            combo = 0;
+        }
+        if (combo == 2)
+        {
+            Debug.Log("콤보2");
+            yield return new WaitForSeconds(1.0f);
+            combo = 0;
+        }
+        if (combo == 3)
+        {
+            Debug.Log("콤보3");
+            yield return new WaitForSeconds(1.0f);
+            combo = 0;
+        }*/
     }
 }

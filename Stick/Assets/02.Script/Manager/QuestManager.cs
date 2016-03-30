@@ -124,7 +124,7 @@ public class QuestManager : MonoBehaviour {
     }
     public void QuestIsClear(string itemName)//퀘스트 조건이 충족 되는지 판단
     {
-        if ((questInfo.req_Target + "(Clone)") == itemName && questCount <= 3)//주운 아이템이 퀘템이면
+        if ((questInfo.req_Target) == itemName && questCount <= 3)//주운 아이템이 퀘템이면
         {
             ClearToQuest++;
             if (questInfo.req_Howmach == ClearToQuest)//퀘스트 할당량 다 채우면

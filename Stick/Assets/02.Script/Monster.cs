@@ -73,8 +73,8 @@ public class Monster : MonoBehaviour
         {
             monsterAnimation.skeleton.flipX = true;
         }
-        StartCoroutine(MonsterAction());
         StartCoroutine(MonsterStateCheck());
+        StartCoroutine(MonsterAction());
     }
     //몬스터 정보를 외부에서 초기화 하기위한 함수입니다.
     public void Insert(string i_id, string i_name, string i_kname, int i_etype, int i_type,
@@ -102,12 +102,14 @@ public class Monster : MonoBehaviour
                     SetAnimation("STAY", true, 1.0f);
                     break;
                 case MonsterState.DIE://죽으면 
-                    SetAnimation("APA3", true, 1.0f);
-                    DestroyMonster();//몬스터 사망처리
-                    nvAgent.Stop();//네비메시스탑
+                    nvAgent.Stop();
+                    SetAnimation("APA3", false, 1.0f);
+                    isDie = true;
+                    QuestManager.Instance.QuestIsClear(name);//퀘 조건인지?
+                    gameObject.SetActive(false);//몬스터 사망처리
                     break;
                 case MonsterState.BEATEN://맞으면
-                    SetAnimation("APA2", true, 1.0f);
+                    SetAnimation("APA2", false, 1.0f);
                     yield return new WaitForSeconds(aniTime);
                     isHit = false;
                     nvAgent.Stop();
@@ -136,10 +138,8 @@ public class Monster : MonoBehaviour
                     {
                         monsterAnimation.skeleton.flipX = true;
                     }
-                    nvAgent.Stop();
-                    atkColl.enabled = true;
-                    SetAnimation("attack2", false, 1.0f);
-                    yield return new WaitForSeconds(aniTime);
+                    SetAnimation("STAY", true, 3.0f);//선딜
+                    yield return new WaitForSeconds(aniTime * 0.3f);
                     if (transform.position.x > playerTr.position.x)
                     {
                         monsterAnimation.skeleton.flipX = false;
@@ -148,10 +148,12 @@ public class Monster : MonoBehaviour
                     {
                         monsterAnimation.skeleton.flipX = true;
                     }
-                    atkColl.enabled = false;
-                    SetAnimation("STAY", true, 3.0f);//후딜
-                    yield return new WaitForSeconds(aniTime * 0.3f);
+                    nvAgent.Stop();
+                    atkColl.enabled = true;
+                    SetAnimation("attack2", false, 1.0f);
+                    yield return new WaitForSeconds(aniTime);
                     monsterState = MonsterState.TRACE;//행동 후 일단 재 추적 부터
+                    atkColl.enabled = false;
                     break;
             }
             yield return null;
@@ -168,8 +170,9 @@ public class Monster : MonoBehaviour
             if (Hp <= 0)
             {
                 monsterState = MonsterState.DIE;
+                isDie = true;
             }
-            if (isHit)//맞을 때
+            else if (isHit)//맞을 때
             {
                 monsterState = MonsterState.BEATEN;
             }
@@ -179,7 +182,7 @@ public class Monster : MonoBehaviour
             {
                 monsterState = MonsterState.ATK;
             }
-            else if (dist <= traceDist)//추적
+            else if (dist <= traceDist && !isDie)//추적
             {
                 monsterState = MonsterState.TRACE;
             }
@@ -195,13 +198,6 @@ public class Monster : MonoBehaviour
         {
             return;
         }
-        else if (isHit)
-        {
-            aniTime = monsterAnimation.state.SetAnimation(1, name, loop).EndTime;
-            monsterAnimation.state.SetAnimation(1, name, loop).timeScale = speed;
-            Debug.Log("애니재생시간 " + aniTime);
-            curAnimation = name;
-        }
         else
         {
             aniTime = monsterAnimation.state.SetAnimation(0, name, loop).EndTime;
@@ -212,15 +208,25 @@ public class Monster : MonoBehaviour
     }
     public void DestroyMonster()//몬스터 사망시 실행하는 함수
     {
+        isDie = true;
         QuestManager.Instance.QuestIsClear(name);//퀘 조건인지?
         gameObject.SetActive(false);
     }
-    void OnTrrigerEnter(Collider defColl)
+    void OnTriggerEnter(Collider defColl)
     {
-        if (defColl.CompareTag("Player"))
+        Debug.Log("작동중");
+        if (defColl.CompareTag("PlayerAtk"))
         {
-            Hp = -10;
-            isHit = true;
+            nvAgent.Stop();
+            Hp = 0;
+            monsterState = MonsterState.DIE;
+            SetAnimation("APA3", false, 1.0f);
+            StopAllCoroutines();
+            isDie = true;
+            atkColl.enabled = false;
+            defColl.enabled = false;
+            QuestManager.Instance.QuestIsClear(name);//퀘 조건인지?
+            gameObject.SetActive(false);//몬스터 사망처리
         }
     }
 }
