@@ -30,7 +30,7 @@ public class GameSystemManager : MonoBehaviour
 
     void Start()
     {
-        SceneManager.LoadScene("ProtoVill", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Stage_01", LoadSceneMode.Additive);
     }
     void FixedUpdate()
     {

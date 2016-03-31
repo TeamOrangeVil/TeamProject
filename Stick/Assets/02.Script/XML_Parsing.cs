@@ -21,7 +21,6 @@ static class XmlConstancts
     public const string QUESTINFONODE = "Quest_Info/Quest";
     public const string QUESTDIALOGXML = "/QuestScript.xml";
     public const string QUESTDIALOGNODE = "Quest_Progress/Progress";
-    public const int MAXPLAYERINFOSAVE = 2;
 }
 
 [System.Serializable]
@@ -65,11 +64,11 @@ public class Quest_Progress//대사 처리
 }
 public class Monster_Info//데이터 로드 리스트 정의
 {
-    public string ID;//몬스터 prefab이름
-    public string Name;//영어이름
-    public string kName;//ui표시 한글이름
-    public int Etype;//약점
-    public int type;//공중 or 지상
+    public string ID;
+    public string Name;
+    public string kName;
+    public int Etype;
+    public int type;
     public int Hp;
     public int Atk;
     public float Spd;
@@ -87,7 +86,6 @@ public class Bind_Info
 public class XML_Parsing : MonoBehaviour
 {
     private string path;//xml파일 경로
-    public int nowSaveCount = 0;
     private static XML_Parsing gInstance = null;
     public static XML_Parsing Instance
     {
@@ -99,14 +97,15 @@ public class XML_Parsing : MonoBehaviour
     }
     [XmlArray("Player"), XmlArrayItem("Player_Info")]
     public List<Player_Info> m_playerlist = new List<Player_Info>();
+
     public List<Monster_Info> monsters = new List<Monster_Info>();
-    XmlDocument Document = new XmlDocument();
+
     // Use this for initialization
     void Awake()
     {
-        gInstance = this;
+        gInstance = this;//싱글톤 재귀
         path = Application.streamingAssetsPath;//xml파일 경로
-        monsters = Read();//시작시 리스트에 xml데이터를 넣는다.
+        monsters = Read(XmlConstancts.MOBDBXML);//시작시 리스트에 xml데이터를 넣는다.
     }
     public Player_Info InfoInsert(string name, int hp, string wpn01,
         string wpn02, string wpn03, string nowWpn)//값을 얻어오자
@@ -135,43 +134,16 @@ public class XML_Parsing : MonoBehaviour
     public Player_Info InfoOutput(List<Player_Info> temp)
     {
         Player_Info tempInfo = new Player_Info();
-        tempInfo.Weapon01 = temp[0].Weapon01.Remove(10);//임시로 (clone)을 지움 오브젝트 풀 구현시 변경할것
+        tempInfo.Weapon01 = temp[0].Weapon01.Remove(10);
         tempInfo.Weapon02 = temp[0].Weapon02.Remove(10);
         tempInfo.Weapon03 = temp[0].Weapon03.Remove(10);
         tempInfo.NowWeapon = temp[0].NowWeapon.Remove(10);
         return tempInfo;
     }
-
-    /// <summary>
-    /// Xml파일을 XmlSerializer로 저장할때 윈도우에서 파일 인코딩이 자동으로 UTF-8로 되지 않기 때문에
-    /// 저장, 불러오기 할때 인코딩 형식을 utf-8로 고정했습니다.
-    /// 그리고 엑셀에서 Xml로 변환한 파일들은 deserialize로 불러올 수 없습니다.
-    /// </summary>
-    public void XmlSaveUTF8()
+    public List<Monster_Info> Read(string Path)//추후 재정의 해서 쓸 수 있도록 작업 할 것
     {
-        var serializer = new XmlSerializer(typeof(List<Player_Info>));
-        using (var stream = new FileStream(path + XmlConstancts.PLAYINFOXML, FileMode.Create))
-        {
-            var streamWriter = new StreamWriter(stream, System.Text.Encoding.UTF8);
-            serializer.Serialize(streamWriter, this.m_playerlist);
-        }
-#if UNITY_EDITOR
-        AssetDatabase.Refresh();
-#endif
-        Debug.Log("저장 완료");
-    }
-    public List<Player_Info> XmlLoadUTF8()
-    {
-        var serializer = new XmlSerializer(typeof(List<Player_Info>));
-        using (var stream = new FileStream(path + XmlConstancts.PLAYINFOXML, FileMode.Open))
-        {
-            var streamReader = new StreamReader(stream, System.Text.Encoding.UTF8);
-            return (List<Player_Info>)serializer.Deserialize(streamReader);
-        }
-    }
-    public List<Monster_Info> Read()//추후 재정의 해서 쓸 수 있도록 작업 할 것
-    {
-        Document.Load(path + XmlConstancts.MOBDBXML);
+        XmlDocument Document = new XmlDocument();
+        Document.Load(path + Path);
         //XmlElement KeyList = Document.DocumentElement;//키 리스트를 문서의 항목을 사용한다?
         XmlNodeList Nodes = Document.SelectNodes(XmlConstancts.MOBXMLNODE);//monsterinfo아래 Monster항목을 노드로 설정하여 하위항목을 불러오자
         List<Monster_Info> tempList = new List<Monster_Info>();//반환을 위한 임시 리스트
@@ -193,10 +165,11 @@ public class XML_Parsing : MonoBehaviour
         }
         return tempList;
     }
-    public List<Bind_Info> BindDBListRead()//리스트로 조합템인지 아닌지 비교용
+    public List<Bind_Info> BindDBListRead(string Path)//리스트로 조합템인지 아닌지 비교용
     {
         List<Bind_Info> bind_list = new List<Bind_Info>();
-        Document.Load(path + XmlConstancts.OBJBINDXML);
+        XmlDocument Document = new XmlDocument();
+        Document.Load(path + Path);
         XmlNodeList Nodes = Document.SelectNodes(XmlConstancts.BINDXMLNODE);
         foreach (XmlNode xn in Nodes)
         {
@@ -209,10 +182,11 @@ public class XML_Parsing : MonoBehaviour
         }
         return bind_list;
     }
-    public Bind_Info BindDBRead(string id)//아이템
+    public Bind_Info BindDBRead(string mpath, string id)//아이템
     {
         Bind_Info bind_info = new Bind_Info();
-        Document.Load(path + XmlConstancts.OBJBINDXML);
+        XmlDocument Document = new XmlDocument();
+        Document.Load(path + mpath);
         XmlNodeList Nodes = Document.SelectNodes(XmlConstancts.BINDXMLNODE);
         foreach (XmlNode xn in Nodes)
         {
@@ -222,17 +196,17 @@ public class XML_Parsing : MonoBehaviour
             temp_info.ObjectCode = xn["Object_Code"].InnerText;
             temp_info.MixResult = xn["Mix_Result"].InnerText;
             if (temp_info.ID == id)
-            {
                 bind_info = temp_info;
-                break;
-            }      
+            //else
+            //Debug.Log("아직 못찾음");
         }
         return bind_info;
     }
-    public Quest_Progress QuestProgressRead(string id)//대사처리
+    public Quest_Progress QuestProgressRead(string path, string id)//대사처리
     {
         Quest_Progress Progress_info = new Quest_Progress();
-        Document.Load(path + XmlConstancts.QUESTDIALOGXML);
+        XmlDocument Document = new XmlDocument();
+        Document.Load(path);
         XmlNodeList Nodes = Document.SelectNodes(XmlConstancts.QUESTDIALOGNODE);
         foreach (XmlNode xn in Nodes)
         {
@@ -244,16 +218,16 @@ public class XML_Parsing : MonoBehaviour
             temp_info.ScriptProgress = xn["Script_Progress"].InnerText;
             temp_info.ScriptPer = xn["Script_Per"].InnerText;
             if (temp_info.QuestID == id)
-            { 
                 Progress_info = temp_info;
-                break;
-            }
+            //else
+            // Debug.Log("아직 못찾음");
         }
         return Progress_info;
     }
-    public Quest_Info QuestInfoRead(int id)//퀘스트 정보
+    public Quest_Info QuestInfoRead(string path, int id)//퀘스트 정보
     {
         Quest_Info Progress_info = new Quest_Info();
+        XmlDocument Document = new XmlDocument();
         Document.Load(path);
         XmlNodeList Nodes = Document.SelectNodes(XmlConstancts.QUESTINFONODE);
         foreach (XmlNode xn in Nodes)
@@ -269,11 +243,42 @@ public class XML_Parsing : MonoBehaviour
             temp_info.ResultExp = int.Parse(xn["ResultExp"].InnerText);
             temp_info.ResultGold = int.Parse(xn["ResultGold"].InnerText);
             if (temp_info.QuestID == id)
-            {
                 Progress_info = temp_info;
-                break;
-            }
+            else
+                Debug.Log("아직 못찾음");
         }
         return Progress_info;
+    }
+
+    public Monster_Info MonsterDbRead(string Path)//list사용 안하도록 재정의 하는 중
+    {
+        Monster_Info m_Info = new Monster_Info();
+        return m_Info;
+    }
+    /// <summary>
+    /// Xml파일을 XmlSerializer로 저장할때 윈도우에서 파일 인코딩이 자동으로 UTF-8로 되지 않기 때문에
+    /// 저장, 불러오기 할때 인코딩 형식을 utf-8로 고정했습니다.
+    /// </summary>
+    public void XmlSaveUTF8()
+    {
+        var serializer = new XmlSerializer(typeof(List<Player_Info>));
+        using (var stream = new FileStream(Application.streamingAssetsPath + XmlConstancts.PLAYINFOXML, FileMode.Create))
+        {
+            var streamWriter = new StreamWriter(stream, System.Text.Encoding.UTF8);
+            serializer.Serialize(streamWriter, this.m_playerlist);
+        }
+#if UNITY_EDITOR
+        AssetDatabase.Refresh();
+#endif
+        Debug.Log("저장 완료");
+    }
+    public List<Player_Info> XmlLoadUTF8()
+    {
+        var serializer = new XmlSerializer(typeof(List<Player_Info>));
+        using (var stream = new FileStream(Application.streamingAssetsPath + XmlConstancts.PLAYINFOXML, FileMode.Open))
+        {
+            var streamReader = new StreamReader(stream, System.Text.Encoding.UTF8);
+            return (List<Player_Info>)serializer.Deserialize(streamReader);
+        }
     }
 }
