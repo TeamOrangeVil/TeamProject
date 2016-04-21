@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Event_Progress xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Progress1>
+		<Event>
+			<ID>1</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>깼구나, 너도 다른 인형처럼 깨어나지 못할 줄 만 알았어</Scrpit>
+		</Event>
+		<Event>
+			<ID>2</ID>
+			<Target>Player</Target>
+			<Scrpit>여긴 어디야? 너는 누구지?</Scrpit>
+		</Event>
+		<Event>
+			<ID>3</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>나는….안내 인형이야, 적어도 한 때는 모두가 날 그렇게 불러줬어</Scrpit>
+		</Event>
+		<Event>
+			<ID>4</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>너는 아무것도 걸친게 없구나, 모두가 너를 뭐라고 불렀던거야?</Scrpit>
+		</Event>
+		<Event>
+			<ID>5</ID>
+			<Target>Player</Target>
+			<Scrpit>나는 아무것도 되지 못했어, 이름도 모습도 없어</Scrpit>
+		</Event>
+		<Event>
+			<ID>6</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>너도 버려진 거야? 다른 인형들처럼?</Scrpit>
+		</Event>
+		<Event>
+			<ID>7</ID>
+			<Target>Player</Target>
+			<Scrpit>아니, 나는 그걸 알아 보려는거야</Scrpit>
+		</Event>
+		<Event>
+			<ID>8</ID>
+			<Target>Player</Target>
+			<Scrpit>내 스스로가 버려진 건지 아니면 어떤 의미를 타고 난 건지를 알고 싶어</Scrpit>
+		</Event>
+		<Event>
+			<ID>9</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>아, 그렇게 까지 말한다니 내가 해줄 수 있는 건 하나네</Scrpit>
+		</Event>
+		<Event>
+			<ID>10</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>평소처럼 또다시 안내하는 것.</Scrpit>
+		</Event>
+		<Event>
+			<ID>11</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>이리와, 넌 아무것도 입지 않았잖아 내가 옷을 만들어 줄게</Scrpit>
+		</Event>
+		<Event>
+			<ID>12</ID>
+			<Target>Player</Target>
+			<Scrpit>옷을 만들 줄 알아?</Scrpit>
+		</Event>
+		<Event>
+			<ID>13</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>아주 약간이야</Scrpit>
+		</Event>
+		<Event>
+			<ID>14</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>어서 와, 옷을 줄 테니까</Scrpit>
+		</Event>
+		<Event>
+			<ID>15</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>빨리 와 이 책 더미가 언제 무너질지 모른단 말야</Scrpit>
+		</Event>
+		<Event>
+			<ID>16</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>자 잠시만 기다려봐, 내가 금방 옷을 줄 테니까.</Scrpit>
+		</Event>
+		<Event>
+			<ID>17</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>이거라도 걸쳐둬, 아무 옷도 걸치지 못한 인형은 어딜 가도 환영 받지 못해</Scrpit>
+		</Event>
+		<Event>
+			<ID>18</ID>
+			<Target>Player</Target>
+			<Scrpit>도와줘서 고마워, 난 이제 가봐야 할 것 같아</Scrpit>
+		</Event>
+		<Event>
+			<ID>19</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>정말로 이곳에 남을 생각은 없어?</Scrpit>
+		</Event>
+		<Event>
+			<ID>20</ID>
+			<Target>Player</Target>
+			<Scrpit>난 내가 누군지 알고 싶어, 내가 버려졌다면 그 이유도 알고 싶어</Scrpit>
+		</Event>
+		<Event>
+			<ID>21</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>그런 것에 이유는 없어, 이곳에 있으면 행복할 거야.</Scrpit>
+		</Event>
+		<Event>
+			<ID>22</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>버려진 인형들 이라지만 우린 행복해 질 수 있어</Scrpit>
+		</Event>
+		<Event>
+			<ID>23</ID>
+			<Target>Player</Target>
+			<Scrpit>미안, 난 그렇다 할지라도 가봐야 할 것 같아.</Scrpit>
+		</Event>
+		<Event>
+			<ID>24</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>그래, 이 근처는 사나운 짐승이 많으니까 조심해 언제 너를 덮칠지 몰라</Scrpit>
+		</Event>
+		<Event>
+			<ID>25</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>도와줘!</Scrpit>
+		</Event>
+		<Event>
+			<ID>26</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>덕분에 살았어</Scrpit>
+		</Event>
+		<Event>
+			<ID>27</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>이제 어떻게 할거야?</Scrpit>
+		</Event>
+		<Event>
+			<ID>28</ID>
+			<Target>player</Target>
+			<Scrpit>나는 역시 떠나야겠어</Scrpit>
+		</Event>
+		<Event>
+			<ID>29</ID>
+			<Target>HelperDoll</Target>
+			<Scrpit>그렇다면 나는 말리지 않을게</Scrpit>
+		</Event>
+		<Event>
+			<ID>30</ID>
+			<Target>Player</Target>
+			<Scrpit>많은 걸 도와줘서 고마워, 저 거미를 조심해</Scrpit>
+		</Event>
+	</Progress1>
+</Event_Progress>
