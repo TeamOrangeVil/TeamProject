@@ -3,153 +3,440 @@
 	<Progress1>
 		<Event>
 			<ID>1</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>깼구나, 너도 다른 인형처럼 깨어나지 못할 줄 만 알았어</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>어머 일어나셨네요</Scrpit>
 		</Event>
 		<Event>
 			<ID>2</ID>
 			<Target>Player</Target>
+			<Other>Helper</Other>
 			<Scrpit>여긴 어디야? 너는 누구지?</Scrpit>
 		</Event>
 		<Event>
 			<ID>3</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>나는….안내 인형이야, 적어도 한 때는 모두가 날 그렇게 불러줬어</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>저는 안내 인형이고 여긴 재봉대에요 그러는 그 쪽은 누구시죠?</Scrpit>
 		</Event>
 		<Event>
 			<ID>4</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>너는 아무것도 걸친게 없구나, 모두가 너를 뭐라고 불렀던거야?</Scrpit>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>글쎄 나도 잘 모르겠어</Scrpit>
 		</Event>
 		<Event>
 			<ID>5</ID>
-			<Target>Player</Target>
-			<Scrpit>나는 아무것도 되지 못했어, 이름도 모습도 없어</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>혹시 버려진 인형들 중 하나세요?</Scrpit>
 		</Event>
 		<Event>
 			<ID>6</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>너도 버려진 거야? 다른 인형들처럼?</Scrpit>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>버려진 인형?</Scrpit>
 		</Event>
 		<Event>
 			<ID>7</ID>
-			<Target>Player</Target>
-			<Scrpit>아니, 나는 그걸 알아 보려는거야</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>제 기능이 안되는 인형들을 말하는거죠 약간에 부품에 손상이 가거나</Scrpit>
 		</Event>
 		<Event>
 			<ID>8</ID>
-			<Target>Player</Target>
-			<Scrpit>내 스스로가 버려진 건지 아니면 어떤 의미를 타고 난 건지를 알고 싶어</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>본인의 테마가 더는 제 모습을 못하는 걸 말합니다</Scrpit>
 		</Event>
 		<Event>
 			<ID>9</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>아, 그렇게 까지 말한다니 내가 해줄 수 있는 건 하나네</Scrpit>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>글쎄, 난 그런거 같지는 않은데</Scrpit>
 		</Event>
 		<Event>
 			<ID>10</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>평소처럼 또다시 안내하는 것.</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>다행이네요 그럼 당신은 누구죠?</Scrpit>
 		</Event>
 		<Event>
 			<ID>11</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>이리와, 넌 아무것도 입지 않았잖아 내가 옷을 만들어 줄게</Scrpit>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>그게 사실 나도 잘 모르겠어</Scrpit>
 		</Event>
 		<Event>
 			<ID>12</ID>
-			<Target>Player</Target>
-			<Scrpit>옷을 만들 줄 알아?</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>그럼 당신은 자신을 기억하지 못하는 만들어지다 만 인형이거나</Scrpit>
 		</Event>
 		<Event>
 			<ID>13</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>아주 약간이야</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>혹시 만들어지다 만 인형이 아닐까요?</Scrpit>
 		</Event>
 		<Event>
 			<ID>14</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>어서 와, 옷을 줄 테니까</Scrpit>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>그럼 날 만든 사람은 날 만든다 만거야? 왜?</Scrpit>
 		</Event>
 		<Event>
 			<ID>15</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>빨리 와 이 책 더미가 언제 무너질지 모른단 말야</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>가끔 가다 그런 인형이 존재한다는 이야기를 들은 적이 있어요</Scrpit>
 		</Event>
 		<Event>
 			<ID>16</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>자 잠시만 기다려봐, 내가 금방 옷을 줄 테니까.</Scrpit>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>혹시 누가 우릴 만들었는지 알 수 있을까?</Scrpit>
 		</Event>
 		<Event>
 			<ID>17</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>이거라도 걸쳐둬, 아무 옷도 걸치지 못한 인형은 어딜 가도 환영 받지 못해</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>혹시 지금 본인 머리가 딸리는걸 자랑하는게 아니라면 정말 놀랍네요</Scrpit>
 		</Event>
 		<Event>
 			<ID>18</ID>
-			<Target>Player</Target>
-			<Scrpit>도와줘서 고마워, 난 이제 가봐야 할 것 같아</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>당연히 인형제작자님이시죠</Scrpit>
 		</Event>
 		<Event>
 			<ID>19</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>정말로 이곳에 남을 생각은 없어?</Scrpit>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>그럼 아무래도 난 그 인형 제작자라는 분을 만나러 가야 할 것 같아</Scrpit>
 		</Event>
 		<Event>
 			<ID>20</ID>
-			<Target>Player</Target>
-			<Scrpit>난 내가 누군지 알고 싶어, 내가 버려졌다면 그 이유도 알고 싶어</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>굳이 이 곳을 떠날 필요가 있나요, 여기 있다면 위험 한 일 없이 안전 할 텐데요</Scrpit>
 		</Event>
 		<Event>
 			<ID>21</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>그런 것에 이유는 없어, 이곳에 있으면 행복할 거야.</Scrpit>
-		</Event>
-		<Event>
-			<ID>22</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>버려진 인형들 이라지만 우린 행복해 질 수 있어</Scrpit>
-		</Event>
-		<Event>
-			<ID>23</ID>
 			<Target>Player</Target>
+			<Other>Helper</Other>
 			<Scrpit>미안, 난 그렇다 할지라도 가봐야 할 것 같아.</Scrpit>
 		</Event>
 		<Event>
+			<ID>22</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>적어도 날 만들다 말았으면 내가 뭐가 될 예정인지는 알려줘야 할거아냐</Scrpit>
+		</Event>
+		<Event>
+			<ID>23</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>뭐 제가 딱히 이렇다 저렇다 할 권리는 없네요</Scrpit>
+		</Event>
+		<Event>
 			<ID>24</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>그래, 이 근처는 사나운 짐승이 많으니까 조심해 언제 너를 덮칠지 몰라</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>일단 저는 안내인형이니 안내를 해야겠죠, 따라오세요</Scrpit>
 		</Event>
 		<Event>
 			<ID>25</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>도와줘!</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>제가 이 곳 재봉대에 대해 안내 해줄 겸 얼추 옷도 만들어 드릴게요</Scrpit>
 		</Event>
 		<Event>
 			<ID>26</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>덕분에 살았어</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>절 따라오세요</Scrpit>
 		</Event>
 		<Event>
 			<ID>27</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>이제 어떻게 할거야?</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>제가 서있는 곳은 책 더미 입니다
+직접 올라 오시는걸 추천 드릴게요</Scrpit>
 		</Event>
 		<Event>
 			<ID>28</ID>
-			<Target>player</Target>
-			<Scrpit>나는 역시 떠나야겠어</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>보시는 바와 같이 무너질 것 같은 책 더미입니다</Scrpit>
 		</Event>
 		<Event>
 			<ID>29</ID>
-			<Target>HelperDoll</Target>
-			<Scrpit>그렇다면 나는 말리지 않을게</Scrpit>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>자 도착입니다 저희 재봉대의 명소 천 무더기죠.</Scrpit>
 		</Event>
 		<Event>
 			<ID>30</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>잠시만 기다려 주실래요? 금방 옷을 짜드릴게요</Scrpit>
+		</Event>
+		<Event>
+			<ID>31</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>자 이거라도 걸쳐두세요 아무것도 안 걸친 것 보단 나을거에요</Scrpit>
+		</Event>
+		<Event>
+			<ID>32</ID>
 			<Target>Player</Target>
-			<Scrpit>많은 걸 도와줘서 고마워, 저 거미를 조심해</Scrpit>
+			<Other>Helper</Other>
+			<Scrpit>와 멋진 옷인데</Scrpit>
+		</Event>
+		<Event>
+			<ID>33</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>제가 안내 해드릴 수 있는 구간은 여기까지 에요</Scrpit>
+		</Event>
+		<Event>
+			<ID>34</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>예전엔 더 멀리까지 구경이 가능했지만 요샌 이 근처에 무서운 괴물이 나타나서요</Scrpit>
+		</Event>
+		<Event>
+			<ID>35</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>괴물이 있어?</Scrpit>
+		</Event>
+		<Event>
+			<ID>36</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>있긴 한데, 어떻게 생겼는지는 모르겠네요 듣기론 아주 흉측하다던데</Scrpit>
+		</Event>
+		<Event>
+			<ID>37</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>고생하네</Scrpit>
+		</Event>
+		<Event>
+			<ID>38</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>지금 딱히 제가 도와 드리긴 힘들지만 제 기억으로 인형제작자가 있는 곳은 알아요</Scrpit>
+		</Event>
+		<Event>
+			<ID>39</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>제 기억 상 아마 이대로 동쪽으로 가면 나오는 창고가 있어요</Scrpit>
+		</Event>
+		<Event>
+			<ID>40</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>제작 되어야할 인형들은 다 거기 있죠 만약당신이 미완성 인형이라면 거기에서 기다리다보면 제작자가 완성시켜주지 않을까요</Scrpit>
+		</Event>
+		<Event>
+			<ID>41</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>그렇군 도와줘서 고마워 안내 인형</Scrpit>
+		</Event>
+		<Event>
+			<ID>42</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>그렇게 아무 준비도 없이 쏘다니다간 괴물에게 손쉽게 망가진 인형이 될 거에요</Scrpit>
+		</Event>
+		<Event>
+			<ID>43</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>어디보자, 당신 몸을 여기 바늘에 엮어 두도록 하죠, 길을 잃거나 다치게 될 때를 대비하여 여기에 실을 엮어두는 거죠. 그리고 위험하게 되면 여길 통해서 돌아오는거에요”</Scrpit>
+		</Event>
+		<Event>
+			<ID>44</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>이제야 훨씬 나아 보이네요</Scrpit>
+		</Event>
+		<Event>
+			<ID>45</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>나 이제 진짜 가볼게 도와줘서 고맙다 안내인ㅎ..</Scrpit>
+		</Event>
+		<Event>
+			<ID>46</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>방금 무슨 소리 나지 않았어?</Scrpit>
+		</Event>
+		<Event>
+			<ID>47</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>소리라니 그게 무슨..</Scrpit>
+		</Event>
+		<Event>
+			<ID>48</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>저게 대체 뭐야?</Scrpit>
+		</Event>
+		<Event>
+			<ID>49</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>여기서 어서 도망쳐요, 괴물이에요!</Scrpit>
+		</Event>
+		<Event>
+			<ID>50</ID>
+			<Target>Player</Target>
+			<Other>null</Other>
+			<Scrpit>방금 저 큰 녀석이 틀림 없는 괴물이겠네 
+      안내인형을 해치기 전에 쫒아가서 구해야겠어</Scrpit>
+		</Event>
+		<Event>
+			<ID>51</ID>
+			<Target>Player</Target>
+			<Other>null</Other>
+			<Scrpit>어? 저 덜컥거리는 서랍은 뭐지? 하지만 내가 그 서랍을 열수 있을것 같지는 않아</Scrpit>
+		</Event>
+		<Event>
+			<ID>52</ID>
+			<Target>Player</Target>
+			<Other>null</Other>
+			<Scrpit>이걸로 왠지 저 덜컥거리는 서랍을 열 수 있을 거 같은데?</Scrpit>
+		</Event>
+		<Event>
+			<ID>53</ID>
+			<Target>Player</Target>
+			<Other>Savedoll</Other>
+			<Scrpit>거기엔 왜 들어가 있던거야?</Scrpit>
+		</Event>
+		<Event>
+			<ID>54</ID>
+			<Target>Savedoll</Target>
+			<Other>Player</Other>
+			<Scrpit>원해서 들어가 있던게 아냐, 그리고 넌 누구야?</Scrpit>
+		</Event>
+		<Event>
+			<ID>55</ID>
+			<Target>Player</Target>
+			<Other>Savedoll</Other>
+			<Scrpit>난 여길 지나가던 인형이지</Scrpit>
+		</Event>
+		<Event>
+			<ID>56</ID>
+			<Target>Savedoll</Target>
+			<Other>Player</Other>
+			<Scrpit>너도 그 여자에게서 도망온거야?</Scrpit>
+		</Event>
+		<Event>
+			<ID>57</ID>
+			<Target>Player</Target>
+			<Other>Savedoll</Other>
+			<Scrpit>누구?</Scrpit>
+		</Event>
+		<Event>
+			<ID>58</ID>
+			<Target>Savedoll</Target>
+			<Other>Player</Other>
+			<Scrpit>이 근처에 산다는 마녀 말이야, 
+자신의 말을 듣지 않는 인형들을 모두 먹이로 준다는 그 마녀</Scrpit>
+		</Event>
+		<Event>
+			<ID>59</ID>
+			<Target>Player</Target>
+			<Other>Savedoll</Other>
+			<Scrpit>괴물 이야기라면 들었어,근데 마녀이야기는 처음 듣네</Scrpit>
+		</Event>
+		<Event>
+			<ID>60</ID>
+			<Target>Savedoll</Target>
+			<Other>Player</Other>
+			<Scrpit>그럼 몸 조심해, 나도 거미에게 잡힐 뻔하다가 
+운좋게 거미를 피해서 여기에 겨우 숨은거야 비록 갇혀버리긴 했지만</Scrpit>
+		</Event>
+		<Event>
+			<ID>61</ID>
+			<Target>Player</Target>
+			<Other>Savedoll</Other>
+			<Scrpit>가르쳐 줘서 고마워, 이대로 동쪽으로 가다보면 안내 인형이라는 인형이 있어</Scrpit>
+		</Event>
+		<Event>
+			<ID>62</ID>
+			<Target>Player</Target>
+			<Other>Savedoll</Other>
+			<Scrpit>그 인형이 널 도와줄거야</Scrpit>
+		</Event>
+		<Event>
+			<ID>63</ID>
+			<Target>Savedoll</Target>
+			<Other>Player</Other>
+			<Scrpit>안내 인형이 또 있었어? 잘됬네 가르쳐 줘서 고마워 친구 몸조심해서 가</Scrpit>
+		</Event>
+		<Event>
+			<ID>64</ID>
+			<Target>Player</Target>
+			<Other>null</Other>
+			<Scrpit>안내 인형이 누구 또 있는가보네</Scrpit>
+		</Event>
+		<Event>
+			<ID>65</ID>
+			<Target>Player</Target>
+			<Other>Dancer</Other>
+			<Scrpit>안녕 친구 혹시 내가 여길 지나가려 하는데 비켜 줄 수 있어?</Scrpit>
+		</Event>
+		<Event>
+			<ID>66</ID>
+			<Target>Dancer</Target>
+			<Other>Player</Other>
+			<Scrpit>미안 친구 그게 좀 곤란해</Scrpit>
+		</Event>
+		<Event>
+			<ID>67</ID>
+			<Target>Player</Target>
+			<Other>Dancer</Other>
+			<Scrpit>아….왜 그런지 물어봐도 되?</Scrpit>
+		</Event>
+		<Event>
+			<ID>68</ID>
+			<Target>Dancer</Target>
+			<Other>Player</Other>
+			<Scrpit>에 보다시피 난 춤추는 인형이야 음악이 나오면 춤을 추는데 가장 마지막에 들었던 음악을춤추거든? 근데 어떤 깡통 같이 생긴 녀석이 축음기 바늘을 가져가려고 난리를 치는 바람에음악이 멈췄어 덕분에 나도 멈춰버려서 여기에 서있게 됬어</Scrpit>
+		</Event>
+		<Event>
+			<ID>69</ID>
+			<Target>Player</Target>
+			<Other>Dancer</Other>
+			<Scrpit>그 깡통이 어디로 갔는지 알아?</Scrpit>
+		</Event>
+		<Event>
+			<ID>70</ID>
+			<Target>Dancer</Target>
+			<Other>Player</Other>
+			<Scrpit>글쎄? 내 마지막 기억에는 여기서 반대 방향으로 가서 
+무슨 가시가 잔뜩 들어있는 통 뒤로 들어갔더라구</Scrpit>
+		</Event>
+		<Event>
+			<ID>71</ID>
+			<Target>Player</Target>
+			<Other>Dancer</Other>
+			<Scrpit>고마워 친구, 내가 금방 바늘을 찾아 올게</Scrpit>
+		</Event>
+		<Event>
+			<ID>72</ID>
+			<Target>Dancer</Target>
+			<Other>Player</Other>
+			<Scrpit>고마워 빨리 돌아올수록 내가 빨리 비켜 줄 수 있을거 같다</Scrpit>
 		</Event>
 	</Progress1>
 </Event_Progress>

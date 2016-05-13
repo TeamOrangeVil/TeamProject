@@ -28,13 +28,8 @@ public class HelperController : MonoBehaviour
 
     public float v;
     public float h;
-    private float jumpPower = 7f;
-    private float walkSpeed = 4.0f;
-    private float runSpeed = 7.0f;
-    private float climbLimit = 0.0075f;
-    private float crawlSpeed = 2.0f;
-    private float ropeLimit = 0.005f;
-    private float ropeSpeed = 30.0f;
+    private float jumpPower = 4.5f;
+    private float climbSpeed = 0.0075f;
 
     public Vector2 movement; // 캐릭터의 움직임
     public Vector3 hangPosition; // 캐릭터가 벽을 붙잡는 최종위치
@@ -106,16 +101,18 @@ public class HelperController : MonoBehaviour
                 // 플레이어 움직임 관련==============================================================================================================
                 if (h != 0)
                 {
-                    if (isFloor) { SetAnimation("WALK", true, 1.0f); }
-                    if (!isFloor) { SetAnimation("JUMP", false, 1.0f); }
+                    if (isFloor && !isCrawl) { SetAnimation("GUIDEWALK", true, 1.0f); }
+                    if (!isFloor && !isCrawl) { SetAnimation("GUIDEJUMP", false, 1.0f); }
+                    if (isCrawl) { SetAnimation("GUIDECRAWL", true, 1.0f); }
                 }
                 if (h == 0)
                 {
                     //if (isFloor) { SetAnimation("STAY", true, 1.0f); }
                     //if (!isFloor) { SetAnimation("JUMP", false, 1.0f); }
                 }
-                if (!isFloor) { SetAnimation("JUMP", false, 1.0f); }
-                if(isHang) { SetAnimation("HAINGING", false, 1.0f); }
+                if (!isFloor && !isCrawl) { SetAnimation("GUIDEJUMP", false, 1.0f); }
+                if(isHang) { SetAnimation("GUIDEHAING", false, 1.0f); }
+                if (isCrawl) { SetAnimation("GUIDECRAWL", true, 1.0f); }
                 //===================================================================================================================================
             }
         }
@@ -129,15 +126,16 @@ public class HelperController : MonoBehaviour
         if (Helper.Skeleton.flipX == false)
         {
             RaycastHit2D hitHang = Physics2D.Raycast(transform.position + (Vector3.up * 2.0f) + (Vector3.right * 0.5f), Vector2.right, 0.2f);
-            if (hitHang.collider.CompareTag("PLAYER"))
+            if(hitHang.collider != null && hitHang.collider.CompareTag("PLAYER"))
             {
                 isPlayer = true;
             }
+            
         }
         else
         {
             RaycastHit2D hitHang = Physics2D.Raycast(transform.position + (Vector3.up * 1.5f) - (Vector3.right * 0.5f), -Vector2.right, 0.5f);
-            if (hitHang.collider.CompareTag("PLAYER"))
+            if (hitHang.collider != null && hitHang.collider.CompareTag("PLAYER"))
             {
                 isPlayer = true;
             }
@@ -149,36 +147,51 @@ public class HelperController : MonoBehaviour
         // 벽 잡기 가능 & 기어가기 체크 =============================================================================================================================
         void HangCheck()
     {
-            RaycastHit2D hitHang = Physics2D.Raycast(transform.position + (Vector3.up * 1.0f) + (Vector3.right * 0.5f), Vector2.right, 0.5f);
-
-        if (hitHang.collider.CompareTag("CLIMBFLOOR"))
+            RaycastHit2D hitHang = Physics2D.Raycast(transform.position + (Vector3.up * 1.0f) + (Vector3.right * 1f), Vector2.right, 0.5f);
+        if(hitHang.collider != null)
         {
-            if (!isHangLimit)
+            if (hitHang.collider.CompareTag("CLIMBFLOOR"))
             {
-                if (!isHang)
+                if (!isHangLimit)
                 {
-                    hangPosition = (hitHang.collider.bounds.min) + (Vector3.up * hitHang.collider.bounds.size.y) - (Vector3.up*3.0f);
+                    if (!isHang)
+                    {
+                        hangPosition = (hitHang.collider.bounds.min) + (Vector3.up * hitHang.collider.bounds.size.y) - (Vector3.up * 3.0f);
 
-                    StartCoroutine(Hanging());
-                    isHangLimit = true;
+                        StartCoroutine(HANGING());
+                        isHangLimit = true;
+                    }
                 }
             }
+            else if (hitHang.collider.CompareTag("CRAWL"))
+            {
+                isFloor = false;
+                isCrawl = true;
+            }
         }
+        
     }
     //===========================================================================================================================================
 
     // 점프 가능 ================================================================================================================================
     void JumpCheck()
     {
-        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
+        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.5f, 1 << 8 | 1 << 9 | 1 << 10 | 1 << 11);
 
         if (hitDown.collider == null)
         {
             isFloor = false;
+            isCrawl = false;
         }
         else if (hitDown.collider.CompareTag("FLOOR") || hitDown.collider.CompareTag("CLIMBFLOOR"))
         {
             isFloor = true;
+            isCrawl = false;
+        }
+        else if (hitDown.collider.CompareTag("CRAWL"))
+        {
+            isFloor = false;
+            isCrawl = true;
         }
     }
     //===========================================================================================================================================
@@ -192,6 +205,7 @@ public class HelperController : MonoBehaviour
         }
         else
         {
+            Helper.skeleton.SetToSetupPose();
             Helper.state.SetAnimation(0, name, loop).timeScale = speed;
             animationName = name;
         }
@@ -199,13 +213,12 @@ public class HelperController : MonoBehaviour
     //===========================================================================================================================================
 
     // 벽 잡기 코루틴 ===========================================================================================================================
-    IEnumerator Hanging()
+    IEnumerator HANGING()
     {
-        Debug.Log("벽을 잡아서 내 ㅡ트레스를 없애버려라");
         rb.isKinematic = true;
         isAct = true;
 
-        if (Helper.Skeleton.flipX == false)
+        if (Helper.Skeleton.flipX.Equals(true))
         {
             transform.position = hangPosition;
         }
@@ -214,7 +227,7 @@ public class HelperController : MonoBehaviour
             transform.position = hangPosition;
         }
 
-        SetAnimation("HAINGING", true, 1.0f);
+        SetAnimation("GUIDEHANG", true, 1.0f);
         yield return new WaitForSeconds(0.5f);
         isHang = true;
     }
@@ -223,41 +236,32 @@ public class HelperController : MonoBehaviour
     // 오르기 코루틴=============================================================================================================================
     IEnumerator CLIMBING()
     {
-        Debug.Log("올라가지롱");
-        SetAnimation("CLIMB", false, 1.0f);
-        if (Helper.Skeleton.flipX == false) // 캐릭터가 왼쪽을 바라볼 경우
+        SetAnimation("GUIDECLIMB", false, 1.0f);
+        if (Helper.Skeleton.flipX.Equals(true)) // 캐릭터가 왼쪽을 바라볼 경우
         {
-            for (float i = 1f; i >= 0; i -= 0.03f)
+            for (float i = 1f; i >= 0; i -= (climbSpeed + 0.01f))
             {
-                tr.Translate((Vector2.up * 2.0f * climbLimit ));
+                tr.Translate((Vector2.up * 5.0f * climbSpeed));
                 yield return 0;
             }
-            for (float i = 1f; i >= 0; i -= 0.025f)
+
+            for (float i = 1f; i >= 0; i -= (climbSpeed + 0.01f))
             {
-                tr.Translate((Vector2.up * 3.0f * climbLimit));
-                yield return 0;
-            }
-            for (float i = 1f; i >= 0; i -= (0.015f + 0.01f))
-            {
-                tr.Translate((Vector2.up * 3.0f * climbLimit) + (Vector2.right * 3.0f * climbLimit));
+                tr.Translate((Vector2.up * 2.0f * climbSpeed) + (Vector2.right * 3.0f * climbSpeed));
                 yield return 0;
             }
         }
         else // 오른쪽을 바라보지 않을 경우
         {
-            for (float i = 1f; i >= 0; i -= climbLimit + 0.1f)
+            for (float i = 1f; i >= 0; i -= (climbSpeed + 0.01f))
             {
-                tr.Translate((Vector2.up * 2.3f * climbLimit));
+                tr.Translate((Vector2.up * 5.0f * climbSpeed));
                 yield return 0;
             }
-            for (float i = 1f; i >= 0; i -= climbLimit + 0.1f)
+
+            for (float i = 1f; i >= 0; i -= (climbSpeed + 0.01f))
             {
-                tr.Translate((Vector2.up * 2.0f * climbLimit));
-                yield return 0;
-            }
-            for (float i = 1f; i >= 0; i -= (climbLimit + 0.1f))
-            {
-                tr.Translate((Vector2.up * 1.0f * climbLimit) - (Vector2.right * 3.0f * climbLimit));
+                tr.Translate((Vector2.up * 1.2f * climbSpeed) + (Vector2.left * 3.0f * climbSpeed));
                 yield return 0;
             }
         }

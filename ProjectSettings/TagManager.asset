@@ -7,14 +7,13 @@ TagManager:
   - PLAYER
   - FLOOR
   - CLIMBFLOOR
-  - HAND
   - BODY
-  - JOINTHEAD
-  - JOINTTAIL
   - WEAPON
-  - PLAYERTEXT
-  - HELPERTEXT
   - HELPER
+  - ROPERING
+  - CRAWL
+  - HAND
+  - TEXTLABEL
   layers:
   - Default
   - TransparentFX
@@ -24,10 +23,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - FLOOR
+  - CLIMBFLOOR
+  - ROPERING
+  - CRAWLING
   - 
   - 
   - 
@@ -72,4 +71,7 @@ TagManager:
     locked: 0
   - name: BLACKBLUR
     uniqueID: 3223243611
+    locked: 0
+  - name: FRONTOBJECT
+    uniqueID: 349957227
     locked: 0

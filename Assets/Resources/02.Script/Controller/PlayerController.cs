@@ -34,21 +34,19 @@ public class PlayerController : MonoBehaviour {
     public bool isRope = false;
     public bool isCrawl = false; // 캐릭터가 기어갈 경우 true
 
-    public float v;
-    public float h;
-    public float playerHP = 5.0f;
+    private float v;
+    private float h;
+    //public float playerHP = 5.0f;
     private float jumpPower = 7f;
     private float walkSpeed = 4.0f;
-    private float runSpeed = 7.0f;
     private float climbLimit = 0.0075f;
-    private float crawlSpeed = 2.0f;
     private float ropeLimit = 0.005f;
     private float ropeSpeed = 30.0f;
 
-    public Vector2 movement; // 캐릭터의 움직임
-    public Vector3 hangPosition; // 캐릭터가 벽을 붙잡는 최종위치
-    public Vector3 JointBodyTr; // 조인트를 연결할 캐릭터의 몸통
-    public Vector3 JointWeaponTr; // 조인트를 연결할 무기의 위치
+    private Vector2 movement; // 캐릭터의 움직임
+    private Vector3 hangPosition; // 캐릭터가 벽을 붙잡는 최종위치
+    private Vector3 JointBodyTr; // 조인트를 연결할 캐릭터의 몸통
+    private Vector3 JointWeaponTr; // 조인트를 연결할 무기의 위치
 
 
     private static PlayerController gInstance = null;
@@ -88,12 +86,10 @@ public class PlayerController : MonoBehaviour {
             isFloor = false;
         }
 
-        RaycastHit2D hitRight = Physics2D.Raycast(transform.position + (Vector3.right * 1.0f), Vector2.right, 1.5f);
-
+        RaycastHit2D hitRight = Physics2D.Raycast(transform.position + (Vector3.right * 1.0f), Vector2.right, 8.0f);
 
         if (hitRight.collider.CompareTag("CLIMBFLOOR"))
         {
-            Debug.Log("업데이트문에서 쌩으로 충돌 하고 있습니다");
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (!isHang)
@@ -107,7 +103,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         JumpCheck(); // 점프를 할수 있는 위치인지 확인
-        HangCheck(); // 잡을 수 있는 벽인지 확인
+        //HangCheck(); // 잡을 수 있는 벽인지 확인
 
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1)) // 점프
@@ -123,8 +119,9 @@ public class PlayerController : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
-                StartCoroutine(CLIMBING());
                 isClimb = true;
+                StartCoroutine(CLIMBING());
+                
             }
         }
 
@@ -191,7 +188,7 @@ public class PlayerController : MonoBehaviour {
        
     }
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+    /*
         void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.CompareTag("FLOOR") || coll.gameObject.CompareTag("CLIMBFLOOR"))
@@ -224,12 +221,12 @@ public class PlayerController : MonoBehaviour {
         {
             isFloor = false;
         }
-    }
+    }*/
 
     // 벽 잡기 가능 & 기어가기 체크 =============================================================================================================================
-    void HangCheck()
+    /*void HangCheck()
     {
-        /*
+        
             Debug.Log("정면에서 당신은 충돌합니다");
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
@@ -240,10 +237,10 @@ public class PlayerController : MonoBehaviour {
                     //hangPosition = hitHang.collider.bounds.min - (Vector3.up * hitHang.collider.bounds.size.y) - (Vector3.up * 2.0f);
                     StartCoroutine(Hanging());
                 }
-            }*/
+            }
 
         
-    }
+    }*/
     //===========================================================================================================================================
 
     // 점프 가능 ================================================================================================================================

@@ -12,8 +12,8 @@ public class BackgroundOffset : MonoBehaviour
     // 카메라
     public Transform cam;
     // 처음 플레이어의 위치
-    public Vector2 startPositionPlayer;
-    public Vector2 startPositionHelper;
+    public Vector3 startPositionPlayer;
+    public Vector3 startPositionHelper;
     // 시작 위치를 기준으로 움직인 거리
     private float playerDistanceX;
     private float playerDistanceY;
@@ -23,7 +23,7 @@ public class BackgroundOffset : MonoBehaviour
     private float comparePosX;
     private float comparePosY;
 
-    private Vector2 comparePos;
+    private Vector3 comparePos;
     // 선형보간
     private float smooth = 3.0f;
 
@@ -51,14 +51,14 @@ public class BackgroundOffset : MonoBehaviour
     void FixedUpdate()
     {
         tr.position = new Vector3(Mathf.Clamp(transform.position.x, 3.37f, 200.0f),
-                                          Mathf.Clamp(transform.position.y, 7.0f, 15.0f),
-                                          Mathf.Clamp(transform.position.z, -15.0f, 20.0f));
+                                          Mathf.Clamp(transform.position.y, -10.0f, 6.0f),
+                                          Mathf.Clamp(transform.position.z, -20.0f, 40.0f));
 
-        if (CameraScript.isTargetPlayer)
+        if (CameraScript.CameraState.Equals(FollowCamera.State.PLAYER))
         {
             //캐릭터의 첫 위치를 기준으로 움직인 거리를 구한다.
             playerDistanceX = (startPositionPlayer.x - player.position.x);
-            //playerDistanceY = (startPositionPlayer.y - player.position.y);
+            playerDistanceY = (startPositionPlayer.y - player.position.y);
 
             //playerDistanceX = (startPosition.x - cam.position.x);
             //playerDistanceY = (startPosition.y - cam.position.y);
@@ -66,22 +66,23 @@ public class BackgroundOffset : MonoBehaviour
             for (int i = 0; i < backgrounds.Length; i++)
             {
                 comparePosX = backgrounds[i].position.x + playerDistanceX * ((i + 1) * speed);
-                //comparePosY = backgrounds[i].position.y + playerDistanceY * ((i + 1));
+                comparePosY = backgrounds[i].position.y + playerDistanceY * ((i + 1) * speed);
 
-                comparePos = new Vector2(comparePosX, comparePosY);
+                comparePos = new Vector3(comparePosX, comparePosY,5.0f);
                 //comparePos = Vector2.right * comparePosX;
 
-                backgrounds[i].position = Vector2.Lerp(backgrounds[i].position, comparePos.x * Vector2.right, smooth * Time.deltaTime);
+                backgrounds[i].position = Vector3.Lerp(backgrounds[i].position, comparePos, smooth * Time.deltaTime);
             }
             startPositionPlayer = player.position;
 
             //startPosition = cam.position;
         }
-        else
+        /*if (CameraScript.CameraState.Equals("HELPER"))
         {
             //캐릭터의 첫 위치를 기준으로 움직인 거리를 구한다.
             playerDistanceX = (startPositionHelper.x - helper.position.x);
-           // playerDistanceY = (startPositionHelper.y - player.position.y);
+            playerDistanceY = (startPositionHelper.y - helper.position.y);
+            // playerDistanceY = (startPositionHelper.y - player.position.y);
 
             //playerDistanceX = (startPosition.x - cam.position.x);
             //playerDistanceY = (startPosition.y - cam.position.y);
@@ -89,17 +90,17 @@ public class BackgroundOffset : MonoBehaviour
             for (int i = 0; i < backgrounds.Length; i++)
             {
                 comparePosX = backgrounds[i].position.x + playerDistanceX * ((i + 1) * speed);
-               // comparePosY = backgrounds[i].position.y + playerDistanceY * ((i + 1));
+                comparePosY = backgrounds[i].position.y + playerDistanceY * ((i + 1) * speed);
 
                 comparePos = new Vector2(comparePosX, comparePosY);
                 //comparePos = Vector2.right * comparePosX;
 
-                backgrounds[i].position = Vector2.Lerp(backgrounds[i].position, comparePos.x * Vector2.right, smooth * Time.deltaTime);
+                backgrounds[i].position = Vector2.Lerp(backgrounds[i].position, comparePos, smooth * Time.deltaTime);
             }
             startPositionHelper = helper.position;
 
             //startPosition = cam.position;
-        }
+        }*/
 
     }
 }
