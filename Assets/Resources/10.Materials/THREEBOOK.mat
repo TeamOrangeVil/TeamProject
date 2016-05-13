@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SAWDUSTTRAP
+  m_Name: THREEBOOK
   m_Shader: {fileID: 4800000, guid: bb6d38422c7f569418e14e041e5ebb68, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _NORMALMAP
   m_LightmapFlags: 5
@@ -27,7 +27,7 @@ Material:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: fc3ef4999e2282f4e8028de61a71c55d, type: 3}
+          m_Texture: {fileID: 2800000, guid: 7311c633b8e055c48947e9b4dd3aafbb, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -98,10 +98,6 @@ Material:
         second: 0
       data:
         first:
-          name: _NormalScale
-        second: 1
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
@@ -111,7 +107,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.5
+        second: 0.118
       data:
         first:
           name: _BumpScale
@@ -136,6 +132,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _NormalScale
+        second: 1
     m_Colors:
       data:
         first:
@@ -144,4 +144,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 0.1397059, g: 0.1397059, b: 0.1397059, a: 1}
