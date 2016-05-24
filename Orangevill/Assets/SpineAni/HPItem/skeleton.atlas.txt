@@ -1,0 +1,34 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+glass
+  rotate: false
+  xy: 2, 394
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: -1
+glass_hilight
+  rotate: false
+  xy: 604, 895
+  size: 163, 99
+  orig: 163, 99
+  offset: 0, 0
+  index: -1
+heart
+  rotate: false
+  xy: 2, 2
+  size: 449, 390
+  orig: 449, 390
+  offset: 0, 0
+  index: -1
+긤자
+  rotate: true
+  xy: 453, 208
+  size: 184, 48
+  orig: 184, 48
+  offset: 0, 0
+  index: -1

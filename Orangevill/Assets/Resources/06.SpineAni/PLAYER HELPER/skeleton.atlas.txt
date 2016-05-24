@@ -1,0 +1,125 @@
+
+skeleton.png
+size: 4096,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+doll_body
+  rotate: true
+  xy: 830, 205
+  size: 305, 357
+  orig: 305, 357
+  offset: 0, 0
+  index: -1
+doll_eye
+  rotate: false
+  xy: 3665, 363
+  size: 181, 67
+  orig: 181, 67
+  offset: 0, 0
+  index: -1
+doll_head
+  rotate: true
+  xy: 1189, 196
+  size: 314, 339
+  orig: 314, 339
+  offset: 0, 0
+  index: -1
+doll_left_hand
+  rotate: true
+  xy: 2512, 377
+  size: 133, 332
+  orig: 133, 332
+  offset: 0, 0
+  index: -1
+doll_mouth
+  rotate: false
+  xy: 404, 133
+  size: 142, 30
+  orig: 142, 30
+  offset: 0, 0
+  index: -1
+doll_right_hand
+  rotate: true
+  xy: 1530, 345
+  size: 165, 323
+  orig: 165, 323
+  offset: 0, 0
+  index: -1
+guide/guide_arm1
+  rotate: true
+  xy: 2178, 376
+  size: 134, 332
+  orig: 134, 332
+  offset: 0, 0
+  index: -1
+guide/guide_arm2
+  rotate: true
+  xy: 1855, 343
+  size: 167, 321
+  orig: 167, 321
+  offset: 0, 0
+  index: -1
+guide/guide_body
+  rotate: true
+  xy: 404, 165
+  size: 345, 424
+  orig: 345, 424
+  offset: 0, 0
+  index: -1
+guide/guide_eye
+  rotate: false
+  xy: 3665, 432
+  size: 232, 78
+  orig: 232, 78
+  offset: 0, 0
+  index: -1
+guide/guide_head
+  rotate: false
+  xy: 2, 130
+  size: 400, 380
+  orig: 400, 380
+  offset: 0, 0
+  index: -1
+guide/guide_leg1
+  rotate: true
+  xy: 1530, 187
+  size: 156, 298
+  orig: 156, 298
+  offset: 0, 0
+  index: -1
+guide/guide_leg2
+  rotate: true
+  xy: 2846, 375
+  size: 135, 305
+  orig: 135, 305
+  offset: 0, 0
+  index: -1
+guide/guide_mouse
+  rotate: false
+  xy: 276, 112
+  size: 73, 16
+  orig: 73, 16
+  offset: 0, 0
+  index: -1
+hip
+  rotate: true
+  xy: 3443, 354
+  size: 156, 220
+  orig: 156, 220
+  offset: 0, 0
+  index: -1
+left_leg
+  rotate: true
+  xy: 3153, 331
+  size: 179, 288
+  orig: 179, 288
+  offset: 0, 0
+  index: -1
+right_leg
+  rotate: true
+  xy: 2, 2
+  size: 126, 272
+  orig: 126, 272
+  offset: 0, 0
+  index: -1
