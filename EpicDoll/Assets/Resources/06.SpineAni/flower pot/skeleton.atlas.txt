@@ -1,0 +1,48 @@
+
+skeleton.png
+size: 4096,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+f1
+  rotate: false
+  xy: 1929, 772
+  size: 371, 1230
+  orig: 371, 1230
+  offset: 0, 0
+  index: -1
+f2
+  rotate: false
+  xy: 2302, 860
+  size: 405, 1142
+  orig: 405, 1142
+  offset: 0, 0
+  index: -1
+f3
+  rotate: false
+  xy: 1636, 686
+  size: 291, 1316
+  orig: 291, 1316
+  offset: 0, 0
+  index: -1
+f4
+  rotate: false
+  xy: 1349, 568
+  size: 285, 1434
+  orig: 285, 1434
+  offset: 0, 0
+  index: -1
+f5
+  rotate: false
+  xy: 1004, 416
+  size: 343, 1586
+  orig: 343, 1586
+  offset: 0, 0
+  index: -1
+꽃병
+  rotate: false
+  xy: 2, 2
+  size: 1000, 2000
+  orig: 1000, 2000
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,69 @@
+
+skeleton.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+doll_body
+  rotate: false
+  xy: 2, 151
+  size: 305, 357
+  orig: 305, 357
+  offset: 0, 0
+  index: -1
+doll_eye
+  rotate: true
+  xy: 661, 5
+  size: 181, 67
+  orig: 181, 67
+  offset: 0, 0
+  index: -1
+doll_head
+  rotate: false
+  xy: 309, 169
+  size: 314, 339
+  orig: 314, 339
+  offset: 0, 0
+  index: -1
+doll_left_hand
+  rotate: true
+  xy: 2, 16
+  size: 133, 332
+  orig: 133, 332
+  offset: 0, 0
+  index: -1
+doll_mouth
+  rotate: false
+  xy: 625, 188
+  size: 142, 30
+  orig: 142, 30
+  offset: 0, 0
+  index: -1
+doll_right_hand
+  rotate: true
+  xy: 336, 2
+  size: 165, 323
+  orig: 165, 323
+  offset: 0, 0
+  index: -1
+hip
+  rotate: true
+  xy: 769, 62
+  size: 156, 220
+  orig: 156, 220
+  offset: 0, 0
+  index: -1
+left_leg
+  rotate: false
+  xy: 625, 220
+  size: 179, 288
+  orig: 179, 288
+  offset: 0, 0
+  index: -1
+right_leg
+  rotate: false
+  xy: 806, 236
+  size: 126, 272
+  orig: 126, 272
+  offset: 0, 0
+  index: -1

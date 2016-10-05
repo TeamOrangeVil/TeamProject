@@ -1,0 +1,146 @@
+
+skeleton.png
+size: 4096,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+KakaoTalk_20160607_155418377
+  rotate: false
+  xy: 908, 248
+  size: 364, 242
+  orig: 364, 242
+  offset: 0, 0
+  index: -1
+KakaoTalk_20160607_155418726
+  rotate: false
+  xy: 1274, 248
+  size: 364, 242
+  orig: 364, 242
+  offset: 0, 0
+  index: -1
+green arm left
+  rotate: true
+  xy: 908, 123
+  size: 123, 331
+  orig: 123, 331
+  offset: 0, 0
+  index: -1
+green arm right
+  rotate: true
+  xy: 2298, 336
+  size: 154, 320
+  orig: 154, 320
+  offset: 0, 0
+  index: -1
+green body
+  rotate: false
+  xy: 2, 76
+  size: 288, 414
+  orig: 288, 414
+  offset: 0, 0
+  index: -1
+green head
+  rotate: false
+  xy: 582, 161
+  size: 324, 329
+  orig: 324, 329
+  offset: 0, 0
+  index: -1
+green leg left
+  rotate: true
+  xy: 1640, 333
+  size: 157, 327
+  orig: 157, 327
+  offset: 0, 0
+  index: -1
+green leg right
+  rotate: true
+  xy: 3292, 358
+  size: 132, 335
+  orig: 132, 335
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 2298, 333
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: false
+  xy: 2942, 356
+  size: 80, 9
+  orig: 80, 9
+  offset: 0, 0
+  index: -1
+purple eye set
+  rotate: false
+  xy: 2, 2
+  size: 197, 72
+  orig: 197, 72
+  offset: 0, 0
+  index: -1
+red scarf
+  rotate: false
+  xy: 1640, 193
+  size: 209, 138
+  orig: 209, 138
+  offset: 0, 0
+  index: -1
+red scarf2
+  rotate: false
+  xy: 2942, 367
+  size: 348, 123
+  orig: 348, 123
+  offset: 0, 0
+  index: -1
+squre button
+  rotate: true
+  xy: 582, 97
+  size: 62, 134
+  orig: 62, 134
+  offset: 0, 0
+  index: -1
+uniform/N_skin_arm_left
+  rotate: true
+  xy: 1241, 123
+  size: 123, 331
+  orig: 123, 331
+  offset: 0, 0
+  index: -1
+uniform/N_skin_arm_right
+  rotate: true
+  xy: 2620, 336
+  size: 154, 320
+  orig: 154, 320
+  offset: 0, 0
+  index: -1
+uniform/N_skin_body
+  rotate: false
+  xy: 292, 76
+  size: 288, 414
+  orig: 288, 414
+  offset: 0, 0
+  index: -1
+uniform/N_skin_hat
+  rotate: true
+  xy: 1851, 176
+  size: 155, 160
+  orig: 155, 160
+  offset: 0, 0
+  index: -1
+uniform/N_skin_leg_left
+  rotate: true
+  xy: 1969, 333
+  size: 157, 327
+  orig: 157, 327
+  offset: 0, 0
+  index: -1
+uniform/N_skin_leg_right
+  rotate: true
+  xy: 3629, 358
+  size: 132, 335
+  orig: 132, 335
+  offset: 0, 0
+  index: -1

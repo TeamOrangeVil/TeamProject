@@ -1,0 +1,153 @@
+
+skeleton.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+entrance
+  rotate: true
+  xy: 2, 2
+  size: 89, 172
+  orig: 89, 172
+  offset: 0, 0
+  index: -1
+house
+  rotate: false
+  xy: 2, 93
+  size: 499, 406
+  orig: 499, 406
+  offset: 0, 0
+  index: -1
+prohibition
+  rotate: true
+  xy: 779, 110
+  size: 108, 127
+  orig: 108, 127
+  offset: 0, 0
+  index: -1
+roof
+  rotate: false
+  xy: 1020, 295
+  size: 476, 204
+  orig: 476, 204
+  offset: 0, 0
+  index: -1
+stake 1
+  rotate: false
+  xy: 423, 25
+  size: 36, 66
+  orig: 36, 66
+  offset: 0, 0
+  index: -1
+stake 10
+  rotate: true
+  xy: 1180, 251
+  size: 42, 75
+  orig: 42, 75
+  offset: 0, 0
+  index: -1
+stake 2
+  rotate: false
+  xy: 1883, 426
+  size: 49, 73
+  orig: 49, 73
+  offset: 0, 0
+  index: -1
+stake 3
+  rotate: true
+  xy: 1498, 303
+  size: 53, 79
+  orig: 53, 79
+  offset: 0, 0
+  index: -1
+stake 4
+  rotate: false
+  xy: 306, 14
+  size: 62, 77
+  orig: 62, 77
+  offset: 0, 0
+  index: -1
+stake 5
+  rotate: true
+  xy: 1699, 368
+  size: 44, 82
+  orig: 44, 82
+  offset: 0, 0
+  index: -1
+stake 6
+  rotate: true
+  xy: 1020, 223
+  size: 70, 81
+  orig: 70, 81
+  offset: 0, 0
+  index: -1
+stake 7
+  rotate: false
+  xy: 1825, 423
+  size: 56, 76
+  orig: 56, 76
+  offset: 0, 0
+  index: -1
+stake 8
+  rotate: true
+  xy: 1103, 242
+  size: 51, 75
+  orig: 51, 75
+  offset: 0, 0
+  index: -1
+stake 9
+  rotate: false
+  xy: 370, 17
+  size: 51, 74
+  orig: 51, 74
+  offset: 0, 0
+  index: -1
+window 1
+  rotate: false
+  xy: 1602, 364
+  size: 95, 135
+  orig: 95, 135
+  offset: 0, 0
+  index: -1
+window 2
+  rotate: false
+  xy: 1498, 358
+  size: 102, 141
+  orig: 102, 141
+  offset: 0, 0
+  index: -1
+window 3
+  rotate: false
+  xy: 1699, 414
+  size: 124, 85
+  orig: 124, 85
+  offset: 0, 0
+  index: -1
+window 4
+  rotate: false
+  xy: 176, 6
+  size: 128, 85
+  orig: 128, 85
+  offset: 0, 0
+  index: -1
+window 5
+  rotate: false
+  xy: 908, 116
+  size: 101, 102
+  orig: 101, 102
+  offset: 0, 0
+  index: -1
+wood 2
+  rotate: true
+  xy: 503, 105
+  size: 113, 274
+  orig: 113, 274
+  offset: 0, 0
+  index: -1
+wood1
+  rotate: false
+  xy: 503, 220
+  size: 515, 279
+  orig: 515, 279
+  offset: 0, 0
+  index: -1

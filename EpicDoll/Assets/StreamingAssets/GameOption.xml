@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SoundOption xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BgmValue>0.2620262</BgmValue>
+  <EffValue>0.2711028</EffValue>
+  <BgmMute>false</BgmMute>
+  <EffMute>false</EffMute>
+</SoundOption>

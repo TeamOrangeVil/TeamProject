@@ -1,0 +1,34 @@
+
+skeleton.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+솜1
+  rotate: false
+  xy: 1477, 729
+  size: 85, 75
+  orig: 85, 75
+  offset: 0, 0
+  index: -1
+솜2
+  rotate: false
+  xy: 2, 74
+  size: 99, 98
+  orig: 99, 98
+  offset: 0, 0
+  index: -1
+솜3png
+  rotate: false
+  xy: 2, 2
+  size: 68, 70
+  orig: 68, 70
+  offset: 0, 0
+  index: -1
+인형무덤_거미줄
+  rotate: false
+  xy: 2, 174
+  size: 1473, 630
+  orig: 1473, 630
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,27 @@
+
+skeleton.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+오른쪽 사슬
+  rotate: false
+  xy: 1026, 1100
+  size: 54, 394
+  orig: 54, 394
+  offset: 0, 0
+  index: -1
+왼쪽 사슬
+  rotate: false
+  xy: 2, 2
+  size: 54, 398
+  orig: 54, 398
+  offset: 0, 0
+  index: -1
+초 본체
+  rotate: false
+  xy: 2, 402
+  size: 1022, 1092
+  orig: 1022, 1092
+  offset: 0, 0
+  index: -1

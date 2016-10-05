@@ -1,0 +1,20 @@
+
+skeleton.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+drawer shadow
+  rotate: false
+  xy: 2, 2
+  size: 197, 61
+  orig: 197, 61
+  offset: 0, 0
+  index: -1
+lock-drawer
+  rotate: false
+  xy: 2, 65
+  size: 198, 157
+  orig: 198, 157
+  offset: 0, 0
+  index: -1

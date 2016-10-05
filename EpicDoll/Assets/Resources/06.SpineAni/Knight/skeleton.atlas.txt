@@ -1,0 +1,104 @@
+
+skeleton.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm_L
+  rotate: false
+  xy: 309, 393
+  size: 214, 294
+  orig: 214, 294
+  offset: 0, 0
+  index: -1
+arm_R
+  rotate: true
+  xy: 1748, 836
+  size: 181, 219
+  orig: 181, 219
+  offset: 0, 0
+  index: -1
+armour
+  rotate: false
+  xy: 2, 2
+  size: 270, 247
+  orig: 270, 247
+  offset: 0, 0
+  index: -1
+feather
+  rotate: false
+  xy: 930, 726
+  size: 311, 291
+  orig: 311, 291
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 525, 682
+  size: 335, 403
+  orig: 335, 403
+  offset: 0, 0
+  index: -1
+leg_L
+  rotate: false
+  xy: 1535, 815
+  size: 211, 202
+  orig: 211, 202
+  offset: 0, 0
+  index: -1
+leg_R
+  rotate: true
+  xy: 309, 255
+  size: 136, 177
+  orig: 136, 177
+  offset: 0, 0
+  index: -1
+shield
+  rotate: false
+  xy: 2, 251
+  size: 305, 436
+  orig: 305, 436
+  offset: 0, 0
+  index: -1
+shoe_L
+  rotate: false
+  xy: 525, 451
+  size: 172, 229
+  orig: 172, 229
+  offset: 0, 0
+  index: -1
+shoe_R
+  rotate: false
+  xy: 699, 460
+  size: 157, 220
+  orig: 157, 220
+  offset: 0, 0
+  index: -1
+shoulder_L
+  rotate: true
+  xy: 858, 517
+  size: 163, 123
+  orig: 163, 123
+  offset: 0, 0
+  index: -1
+shoulder_R
+  rotate: false
+  xy: 983, 598
+  size: 108, 126
+  orig: 108, 126
+  offset: 0, 0
+  index: -1
+side
+  rotate: false
+  xy: 1243, 750
+  size: 290, 267
+  orig: 290, 267
+  offset: 0, 0
+  index: -1
+spear
+  rotate: false
+  xy: 2, 689
+  size: 521, 328
+  orig: 521, 328
+  offset: 0, 0
+  index: -1
