@@ -12,12 +12,12 @@ struct ObjectSetup
     public Vector3 beforeRot;                   //옵젝 초기 회전
     public bool isEnabled;                      //작동 온오프 적용
 
-    /* bool isKine;//키네마틱 작동 여부
-    public bool isCollOn;//콜리더
-    public bool isSpriteShow;//스프라이트 on off
-    public bool isEffectShow;//이펙트 on off
-    public bool isGotAni; // 상호작용 오브젝트가 애니메이션을 포함하는 경우*/
-
+    /* bool isKine;                             //키네마틱 작동 여부
+    public bool isCollOn;                       //콜리더
+    public bool isSpriteShow;                   //스프라이트 on off
+    public bool isEffectShow;                   //이펙트 on off
+    public bool isGotAni;                       // 상호작용 오브젝트가 애니메이션을 포함하는 경우
+    */
 };
 public struct ReStartPlayerInfo
 {
@@ -33,52 +33,48 @@ public class GameManager : MonoBehaviour
 {
     private int frameRate = 60;
 
-    public GameInfo gameInfo;//게임의 현재 진행 정보를 담는다
+    public GameInfo gameInfo;                   //게임의 현재 진행 정보를 담는다
     Stack<ObjectSetup> checkPointGameObjectStack;//되돌아갈 게임 오브젝트들을 담는 스텤
 
     public TutorialManager tutoManager;
-    ObjectSetup tempObjectSetup;//오브젝트를 담아두는 임시변수
-    ReStartPlayerInfo restartNeedsPlayer;//게임오버후 시스템이 재시작할때 필요한 목록들
+    ObjectSetup tempObjectSetup;                //오브젝트를 담아두는 임시변수
+    ReStartPlayerInfo restartNeedsPlayer;       //게임오버후 시스템이 재시작할때 필요한 목록들
 
-    public GameObject effect;//저장 이펰트
-    public GameObject TeleportStartEff;//텔포 시작 이펰
-    public GameObject TeleportEndEff;//텔포 종료 이펰
-    public GameObject player;//플레이어 ㅋ
-    public GameObject Weapon;//캐릭터 바늘
+    //public GameObject TeleportStartEff;       //텔포 시작 이펰
+    //public GameObject TeleportEndEff;         //텔포 종료 이펰
+    public GameObject effect;                   //저장 이펰트
+    public GameObject player;                   //플레이어 ㅋ
+    public GameObject Weapon;                   //캐릭터 바늘
 
-    //MeshRenderer playerMesh;//플레이어 캐릭터 이미지
-    //Rigidbody2D playerRid;//물리
-    //SkeletonAnimation playerAni;//애니메이션
-    //AniSpriteChange aniChange;//애니 스킨체인지
-    Vector3 playerBeforeTr;//체크포인트를 활성화한 위치
-    Vector3 playerRestartTr;//초기 리스타트 위치
-    Vector3 effectTr;//이펙트 위치
+    Vector3 playerBeforeTr;                     //체크포인트를 활성화한 위치
+    Vector3 playerRestartTr;                    //초기 리스타트 위치
+    Vector3 effectTr;                           //이펙트 위치
 
-    public int hp = 100;//플레이어 채력
-    public int checkCount = 4;
-    int beforeHp = 100;//체크포인트 발동할때 채력
+    public int hp = 100;                        //플레이어 채력
+    public int checkCount = 4;                  //체크포인트 사용 가능 횟수
+    int beforeHp = 100;                         //체크포인트 발동할때 채력
 
-    public float playTime = 0;
-    public int hitTimes = 0;
-    public int deadTimes = 0;
-    public float QuestProgress = 0;
+    public float playTime = 0;                  //플레이 시간
+    public int hitTimes = 0;                    //피격 횟수
+    public int deadTimes = 0;                   //사망 횟수
+    public float QuestProgress = 0;             //퀘스트 진행정보 (%)
 
-    public bool nowLoad = false;//로드중?
-    public bool nowSave = false;//세이부중?
-    public bool playerRewind = false;//되감기중?
-    public bool gameover = false;//게임오버?
-    public bool reloadStage = false;//스테이지 재 로딩 ?
+    public bool nowLoad = false;                //로드중?
+    public bool nowSave = false;                //세이부중?
+    public bool playerRewind = false;           //되감기중?
+    public bool gameover = false;               //게임오버?
+    public bool reloadStage = false;            //스테이지 재 로딩 ?
 
     //이벤 ---------------------------------------------------------
-    public bool getKey = false; //열쇠
-    public bool meetMan = false; //서랍장맨
-    public bool mansWall = false;//서랍장맨 구했는지?
-    public bool returnToWay = false; //돌아가
-    public bool getCompas = false; //컴퍼스겟?
-    public bool getNeedle = false; //바늘 겟?
-    public bool meetKnight = false; //기사 ㅎㅇ?
-    public bool meetDancer = false; //댄서 ㅎㅇ?
-    public bool exchange = false; //기사랑 템 교환 ?
+    public bool getKey = false;                 //열쇠
+    public bool meetMan = false;                //서랍장맨
+    public bool mansWall = false;               //서랍장맨 구했는지?
+    public bool returnToWay = false;            //돌아가
+    public bool getCompas = false;              //컴퍼스겟?
+    public bool getNeedle = false;              //바늘 겟?
+    public bool meetKnight = false;             //기사 ㅎㅇ?
+    public bool meetDancer = false;             //댄서 ㅎㅇ?
+    public bool exchange = false;               //기사랑 템 교환 ?
     //--------------------------------------------------------------
 
     private static GameManager gInstance = null;
@@ -109,7 +105,7 @@ public class GameManager : MonoBehaviour
     public void GameInfoDataSave(int saveNumber)
     {
         Debug.Log("데이터 저장");
-        //TutorialManager.Instance.TutoDataSave();
+        TutorialManager.Instance.TutoDataSave();
         gameInfo.IDNumber = saveNumber;
         gameInfo.hp = hp;
         gameInfo.beforeHp = beforeHp;

@@ -55,6 +55,7 @@ public class GameInfo //xml로 불러올 게임 정보를 저장할 클라스
     public bool meetKnight = false;                 //기사 ㅎㅇ?
     public bool meetDancer = false;                 //댄서 ㅎㅇ?
     public bool exchange = false;                   //기사랑 템 교환 ?
+    public bool InfoDollAct = false;                //안내인형 on off
     public bool spiderAct = false;                  //거미
     public bool shadowSpiderAct = false;            //거미 작동 여부
     public bool deskBox = false;                    //서랍장

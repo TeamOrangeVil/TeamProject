@@ -728,14 +728,97 @@
 아무래도 저 잠긴 사물함이 신경쓰여…!
 아까 열쇠를 지나가다가 본 것 같은데 일단 그거부터 찾아야겠어.</Scrpit>
 		</Event>
-    <Event>
-    <ID>118</ID>
-    <Target>Player</Target>
-    <Other>null</Other>
-    <Scrpit>
-      (잠깐 멈칫한다.)
-      열쇠를 얻었으니 사물함부터 열러가야겠어!
-    </Scrpit>
-    </Event>
+		<Event>
+			<ID>118</ID>
+			<Target>Player</Target>
+			<Other>null</Other>
+			<Scrpit>(잠깐 멈칫한다.)
+      열쇠를 얻었으니 사물함부터 열러가야겠어!</Scrpit>
+		</Event>
+		<Event>
+			<ID>119</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>괴물 녀석, 여기로 오지 못하는걸 보니 이 검은콩같이 생긴 걸 무서워하나보네…
+하마터면 잡혀 죽는 줄 알았어…</Scrpit>
+		</Event>
+		<Event>
+			<ID>120</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>그나저나 너는 저런 괴물이 저 지경이 될 동안 뭘한거야?
+너 때문에 죄 없이 죽은 인형들이 얼마나 많은지 알ㄱ…!</Scrpit>
+		</Event>
+		<Event>
+			<ID>121</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>이게 뭐, 제 탓인 줄 알아요?
+과거에 매달려 사는 저 구질구질한 괴물이 문제인거죠!</Scrpit>
+		</Event>
+		<Event>
+			<ID>122</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>하… 정말 말이 안 통하네…
+그나저나 어쩔거야? 곧 있으면 저 괴물이 널 쫓아올텐데…</Scrpit>
+		</Event>
+		<Event>
+			<ID>123</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>말 안해도 알고 있어요. 당신은 아무 상관 없으니까 그냥 가던 길 그대로 가세요.</Scrpit>
+		</Event>
+		<Event>
+			<ID>124</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>넌 어쩌려고 그래? 저 괴물을 그냥 방치해둘거야?</Scrpit>
+		</Event>
+		<Event>
+			<ID>125</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>그러진 않을 거에요. 저 괴물에게 자기 갈 길을 확실하게 안내해줘야겠지요. 전 안내인형이니까.
+저 괴물은 저번 안내를 잘 이해하지 못한 것 같네요.</Scrpit>
+		</Event>
+		<Event>
+			<ID>126</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>뭘 어떻게 할 건지 제대로 말 좀 해ㅂ…</Scrpit>
+		</Event>
+		<Event>
+			<ID>127</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>그만, 거기까지.
+곧 있으면 괴물 녀석이 여기 올텐데, 저희...수다가 너무 길어지는 거 같지 않나요?</Scrpit>
+		</Event>
+		<Event>
+			<ID>128</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>저 앞에 보이는 문 너머가 거실인데, 거기에 인형사 할아버지가 계실 거에요.
+이게 제가 당신에게 해주는 마지막 안내가 될 것 같네요.</Scrpit>
+		</Event>
+		<Event>
+			<ID>129</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>너 정말…</Scrpit>
+		</Event>
+		<Event>
+			<ID>130</ID>
+			<Target>Helper</Target>
+			<Other>Player</Other>
+			<Scrpit>이런 곳에서 그렇게 가만히 계시다간 괴물에게 잡혀 죽으셔요. 어서 가던 길로 직행이나 하세요.</Scrpit>
+		</Event>
+		<Event>
+			<ID>131</ID>
+			<Target>Player</Target>
+			<Other>Helper</Other>
+			<Scrpit>하여간…… 고생해라.</Scrpit>
+		</Event>
 	</Progress1>
 </Event_Progress>

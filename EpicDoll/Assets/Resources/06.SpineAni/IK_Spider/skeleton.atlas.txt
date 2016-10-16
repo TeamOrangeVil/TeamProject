@@ -1,0 +1,179 @@
+
+skeleton.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+S_fourth_leg02
+  rotate: true
+  xy: 258, 22
+  size: 61, 56
+  orig: 61, 56
+  offset: 0, 0
+  index: -1
+fourth_leg02
+  rotate: true
+  xy: 258, 22
+  size: 61, 56
+  orig: 61, 56
+  offset: 0, 0
+  index: -1
+S_front_leg02
+  rotate: true
+  xy: 708, 101
+  size: 201, 195
+  orig: 201, 195
+  offset: 0, 0
+  index: -1
+front_leg02
+  rotate: true
+  xy: 708, 101
+  size: 201, 195
+  orig: 201, 195
+  offset: 0, 0
+  index: -1
+S_second_leg01
+  rotate: true
+  xy: 708, 2
+  size: 97, 175
+  orig: 97, 175
+  offset: 0, 0
+  index: -1
+second_leg01
+  rotate: true
+  xy: 708, 2
+  size: 97, 175
+  orig: 97, 175
+  offset: 0, 0
+  index: -1
+S_second_leg02
+  rotate: true
+  xy: 2, 13
+  size: 70, 254
+  orig: 70, 254
+  offset: 0, 0
+  index: -1
+second_leg02
+  rotate: true
+  xy: 2, 13
+  size: 70, 254
+  orig: 70, 254
+  offset: 0, 0
+  index: -1
+spider_middle
+  rotate: false
+  xy: 708, 304
+  size: 280, 206
+  orig: 280, 206
+  offset: 0, 0
+  index: -1
+spider_tail
+  rotate: false
+  xy: 2, 85
+  size: 704, 425
+  orig: 704, 425
+  offset: 0, 0
+  index: -1
+
+skeleton2.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+S_fourth_leg01
+  rotate: true
+  xy: 542, 228
+  size: 261, 420
+  orig: 261, 420
+  offset: 0, 0
+  index: -1
+fourth_leg01
+  rotate: true
+  xy: 542, 228
+  size: 261, 420
+  orig: 261, 420
+  offset: 0, 0
+  index: -1
+S_fourth_leg03
+  rotate: true
+  xy: 2, 110
+  size: 379, 538
+  orig: 379, 538
+  offset: 0, 0
+  index: -1
+fourth_leg03
+  rotate: true
+  xy: 2, 110
+  size: 379, 538
+  orig: 379, 538
+  offset: 0, 0
+  index: -1
+S_front_leg03
+  rotate: true
+  xy: 542, 2
+  size: 224, 344
+  orig: 224, 344
+  offset: 0, 0
+  index: -1
+front_leg03
+  rotate: true
+  xy: 542, 2
+  size: 224, 344
+  orig: 224, 344
+  offset: 0, 0
+  index: -1
+S_third_leg01
+  rotate: true
+  xy: 2, 10
+  size: 98, 390
+  orig: 98, 390
+  offset: 0, 0
+  index: -1
+third_leg01
+  rotate: true
+  xy: 2, 10
+  size: 98, 390
+  orig: 98, 390
+  offset: 0, 0
+  index: -1
+
+skeleton3.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+S_front_leg01
+  rotate: true
+  xy: 2, 2
+  size: 142, 335
+  orig: 142, 335
+  offset: 0, 0
+  index: -1
+front_leg01
+  rotate: true
+  xy: 2, 2
+  size: 142, 335
+  orig: 142, 335
+  offset: 0, 0
+  index: -1
+S_third_leg02
+  rotate: true
+  xy: 2, 146
+  size: 270, 515
+  orig: 270, 515
+  offset: 0, 0
+  index: -1
+third_leg02
+  rotate: true
+  xy: 2, 146
+  size: 270, 515
+  orig: 270, 515
+  offset: 0, 0
+  index: -1
+spider_head
+  rotate: false
+  xy: 519, 157
+  size: 348, 259
+  orig: 348, 259
+  offset: 0, 0
+  index: -1

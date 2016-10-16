@@ -59,7 +59,6 @@ public class Monster : MonoBehaviour {
         }
         else
         {
-            
             //trackEntry.TimeScale = 0.0f;
             monsterAnimation.skeletonDataAsset.Reset();
             monsterAnimation.skeleton.SetToSetupPose();

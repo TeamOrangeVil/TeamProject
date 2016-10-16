@@ -337,6 +337,11 @@ public class MainManager : MonoBehaviour {
             XButton.SetActive(true);
             OptionWindow.SetActive(true);
 
+            StartBox.enabled = false;
+            OptionBox.enabled = false;
+            StaffBox.enabled = false;
+            EndBox.enabled = false;
+
             StartButton.enabled = false;
             OptionButton.enabled = false;
             StaffButton.enabled = false;
@@ -384,6 +389,11 @@ public class MainManager : MonoBehaviour {
             XButton.SetActive(true);
             StaffWindow.enabled = true;
 
+            StartBox.enabled = false;
+            OptionBox.enabled = false;
+            StaffBox.enabled = false;
+
+            EndBox.enabled = false;
             StartButton.enabled = false;
             OptionButton.enabled = false;
             StaffButton.enabled = false;
@@ -399,6 +409,11 @@ public class MainManager : MonoBehaviour {
 
             StaffWindow.enabled = false;
             XButton.SetActive(false);
+
+            StartBox.enabled = true;
+            OptionBox.enabled = true;
+            StaffBox.enabled = true;
+            EndBox.enabled = true;
 
             StartButton.enabled = true;
             OptionButton.enabled = true;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Spine.Unity;
-
+using UnityEngine.SceneManagement;
 public class TutorialManager : MonoBehaviour
 {
     private static TutorialManager gInstance = null;
@@ -30,6 +30,7 @@ public class TutorialManager : MonoBehaviour
 
     public GameObject CutToon1; // 컷신1
     public GameObject CutToon2; // 컷신2
+    public GameObject CutToon3; // 컷신3
 
     public SkeletonAnimation Spider; // 플레이어를 공격하는 거미
     public SkeletonAnimation ShadowSpider; // 플레이어를 지나치는 거미
@@ -113,7 +114,7 @@ public class TutorialManager : MonoBehaviour
         {
             GameManager.Instance.HpPlusGet();
         }
-        if (Input.GetKeyDown(KeyCode.F2)) // 체크 포인트 푀복
+        if (Input.GetKeyDown(KeyCode.F2)) // 체크 포인트 회복
         {
             GameManager.Instance.CheckPlusGet();
         }
@@ -130,6 +131,7 @@ public class TutorialManager : MonoBehaviour
             StartCoroutine(Tutorial100());
             tutorialCnt = 0;
         }
+
         if (tutorialCnt.Equals(0))
         {
             if (CutToon1.activeInHierarchy.Equals(true) && isSkip)
@@ -150,17 +152,25 @@ public class TutorialManager : MonoBehaviour
                 isSkip = false;
                 tutorialCnt = 23;
             }
+            if (CharacterController2D.Instance.transform.position.x > 778f)
+            {
+                tutorialCnt = 24;
+
+            }
         }
+
         if (tutorialCnt.Equals(1))
         {
             StartCoroutine(Tutorial1());
             tutorialCnt = 0;
         }
+
         if (tutorialCnt.Equals(2) && TutorialDist.x < 5.0f)
         {
             StartCoroutine(Tutorial2());
             tutorialCnt = 0;
         }
+
         if (tutorialCnt.Equals(3))
         {
             if (!isSpider && CharacterController2D.Instance.transform.position.x > 26.23f) // 캐릭터의 위치가 책 위에 있고 isSpider가 false면
@@ -174,13 +184,14 @@ public class TutorialManager : MonoBehaviour
                 StartCoroutine(Tutorial3());
                 tutorialCnt = 0;
             }
-
         }
+
         if (tutorialCnt.Equals(4) && TutorialDist.x < 2.5f)
         {
             StartCoroutine(Tutorial4());
             tutorialCnt = 0;
         }
+
         if (tutorialCnt.Equals(5))
         {
             if (!CharacterController2D.Instance.isInfo)
@@ -362,6 +373,11 @@ public class TutorialManager : MonoBehaviour
             StartCoroutine(Tutorial23());
             tutorialCnt = 0;
         }
+        if (tutorialCnt.Equals(24) && CharacterController2D.Instance.transform.position.x > 778f) //
+        {
+            StartCoroutine(Tutorial24());
+            tutorialCnt = 99;
+        }
     }
     public void TutoDataSave()
     {
@@ -386,6 +402,11 @@ public class TutorialManager : MonoBehaviour
         {
             //받아온 정보들을 바탕으로 튜토리얼 맞춤
             tutorialCnt = tutoCount;
+            if (tutoCount>=16)
+            {
+                AfterObj.SetActive(true);
+                BeforeObj.SetActive(false);
+            }
             skinNum = skinnum;
             AniSpriteChange.Instance.SpriteChange(skinNum);
             SoundEffectManager.Instance.BGMStart(bgmnum);
@@ -1088,6 +1109,7 @@ public class TutorialManager : MonoBehaviour
 
         yield return 0;
     }
+
     IEnumerator Tutorial15() 
     {
         Debug.Log("15");
@@ -1614,7 +1636,7 @@ public class TutorialManager : MonoBehaviour
         CharacterController2D.Instance.isAct = false;
         CameraScript.CameraState = FollowCamera.State.SPIDERTRACE;
         CharacterController2D.Instance.Player.transform.position = new Vector3(607, 0, 0);
-        BossSpider.transform.position = new Vector3(581.96f, -0.3f, 2);
+        BossSpider.transform.position = new Vector3(581.96f, -1.13f, 2);
         BossSpider.SetActive(true);
 
         TutoDataSave(); // 게임 데이터 세이브 기록
@@ -1697,6 +1719,90 @@ public class TutorialManager : MonoBehaviour
 
         TutoDataSave(); // 게임 데이터 세이브 기록
         GameManager.Instance.GameInfoDataSave(SlotDataNumberSave.Instance.slotNum); // 게임 데이터 세이브 저장
+        yield return 0;
+    }
+
+    IEnumerator Tutorial24() //엔딩
+    {
+        Debug.Log("와우 엔딩에 도착을 해 버렸다 당신을 결과를 보려고 한다 얏호");
+        
+        UIManager.Instance.StartCoroutine("FadeOut");//페이드 아웃
+        CharacterController2D.Instance.isAct = true; // 플레이어 움직임 제한
+
+        yield return new WaitForSeconds(2.5f);
+
+        BossSpider.SetActive(false);
+        UIManager.Instance.HelpUIOFF();
+        UIManager.Instance.HPBar.enabled = false;
+        UIManager.Instance.CheckBar.enabled = false;
+
+        // 거미와 플레이어의 위치를 대치 상태로 옮김
+        // 헬퍼는 플레이어 왼쪽에 서있음
+        HelperScript.Helper.gameObject.SetActive(true);
+        CharacterController2D.Instance.isAct = true; // 플레이어 움직임 제한
+
+        CharacterController2D.Instance.transform.position = new Vector3(790f,0f,0f);
+        CharacterController2D.Instance.SetAnimation("STAY", false, 1.0f);
+
+        HelperDollTr.transform.position = new Vector3(787f, 0f, 0f);
+        HelperScript.Helper.skeleton.FlipX = true; // 헬퍼는 오른쪽을 바라본다.
+
+
+        // 카메라 고정
+        CameraScript.CameraState = FollowCamera.State.FREEZE;
+
+        // 몇초 쉬고 페이드 인
+        yield return new WaitForSeconds(1.5f);
+        UIManager.Instance.StartCoroutine("FadeIn");//페이드 인
+
+        // 플레이어는 헬퍼를 바라봄
+        CharacterController2D.Instance.Player.skeleton.FlipX = false;
+
+        yield return new WaitForSeconds(5.0f);
+        // 대화 시작(문서 받은게 이상함)
+        textCnt = 119;
+        while (!isSkip)
+        {
+            UIManager.Instance.TalkStart(textCnt);
+            UIManager.Instance.WaitCheck(textCnt);
+            yield return new WaitForSeconds(UIManager.Instance.WaitCount);
+            textCnt += 1;
+            if (textCnt.Equals(131))
+            {
+                break;
+            }
+        }
+        
+
+        // 대화가 끝나면 플레이어 캐릭터가 오른쪽을 바라봄
+        CharacterController2D.Instance.Player.skeleton.FlipX = true;
+
+        UIManager.Instance.StartCoroutine("FadeOut");//페이드 아웃
+
+        while (Vector3.Distance(HelperDollTr.position, PlayerTr.position) < 20.0f)// 플레이어는 걸어간다.
+        {
+            CharacterController2D.Instance.Player.skeleton.FlipX = true;
+            CharacterController2D.Instance.SetAnimation("WALK", true, 1.0f);
+            CharacterController2D.Instance.transform.Translate((Vector2.right * 0.08f * Time.timeScale));
+            yield return 0;
+        }
+
+        UIManager.Instance.HelpUIOFF();
+        UIManager.Instance.UIOff();
+
+        // 페이드 인
+        UIManager.Instance.StartCoroutine("FadeIn");//페이드 인
+
+        // 애니메이션 재생
+        CutToon3.SetActive(true);
+
+        yield return new WaitForSeconds(4.0f);
+
+        // 페이드 아웃
+        UIManager.Instance.StartCoroutine("FadeOut");//페이드 아웃
+
+        // 엔딩 크레딧(내부에 씬 이동)
+        UIManager.Instance.StartCoroutine("EndCredit");
         yield return 0;
     }
 }

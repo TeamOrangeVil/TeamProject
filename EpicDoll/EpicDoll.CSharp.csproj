@@ -92,9 +92,9 @@
     <Compile Include="Assets\Resources\02.Script\PLAYER\CharacterRaycast.cs" />
     <Compile Include="Assets\Resources\02.Script\Rope.cs" />
     <Compile Include="Assets\Resources\02.Script\SlotDataNumberSave.cs" />
+    <Compile Include="Assets\Resources\02.Script\Test.cs" />
     <Compile Include="Assets\Resources\02.Script\TrapObject.cs" />
     <Compile Include="Assets\Resources\02.Script\UIPosition.cs" />
-    <Compile Include="Assets\Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
@@ -148,18 +148,19 @@
     <None Include="Assets\Plugins\spine-unity\Shaders\Skeleton.shader" />
     <None Include="Assets\Plugins\spine-unity\Shaders\SkeletonLit.shader" />
     <None Include="Assets\Resources\06.SpineAni\BrokenHouse\skeleton.atlas.txt" />
-    <None Include="Assets\Resources\06.SpineAni\CANDLE\skeleton.atlas.txt" />
+    <None Include="Assets\Resources\06.SpineAni\CANDLE 1\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\ChestDoll\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\Clock1\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\Clock2\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\Desk\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\HELPER\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\HPItem\skeleton.atlas.txt" />
+    <None Include="Assets\Resources\06.SpineAni\IK_Spider\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\Knight\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\NewSpider\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\NewSpiderShadow\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\Player\skeleton.atlas.txt" />
-    <None Include="Assets\Resources\06.SpineAni\Spider_IK_Test_2\skeleton.atlas.txt" />
+    <None Include="Assets\Resources\06.SpineAni\Spider\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\dancingdoll\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\doll grave\skeleton.atlas.txt" />
     <None Include="Assets\Resources\06.SpineAni\flower pot\skeleton.atlas.txt" />
@@ -264,6 +265,7 @@
     <None Include="Assets\StreamingAssets\EventScript.xml" />
     <None Include="Assets\StreamingAssets\GameOption.xml" />
     <None Include="Assets\StreamingAssets\InfoScript.xml" />
+    <None Include="Assets\StreamingAssets\PlayDB.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

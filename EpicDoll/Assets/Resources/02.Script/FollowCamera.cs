@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FollowCamera : MonoBehaviour
 {
-    public enum State { PLAYER, HELPER, SPIDER, SPIDERFOOT,SPIDERTRACE }    // 카메라 타겟
+    public enum State { PLAYER, HELPER, SPIDER, SPIDERFOOT,SPIDERTRACE, FREEZE }    // 카메라 타겟
     public State CameraState;                                               // 열거형 선언
 
     public Transform targetPlayer;      // 카메라가 바라볼 플레이어 타겟
@@ -55,13 +55,14 @@ public class FollowCamera : MonoBehaviour
             case State.SPIDERFOOT:
                 tr.position = Vector3.Lerp(tr.position, targetSpiderFoot.position + (targetSpiderFoot.up * y) - (targetSpiderFoot.forward * x) + (targetSpiderFoot.up), Time.deltaTime * trace);
                 break;
-            case State.SPIDERTRACE:
+            case State.SPIDERTRACE: // 추격전 거미
                 tr.position = Vector3.Lerp(tr.position, targetPlayer.position + (targetPlayer.up * y) - (targetPlayer.forward * x) + Random.insideUnitSphere * shakeRadius * 0.2f, Time.deltaTime * trace);
                 tr.position = new Vector3(Mathf.Clamp(transform.position.x, 3.37f, 800.0f),
                                               Mathf.Clamp(transform.position.y, 4.2f, 800.0f),
                                               Mathf.Clamp(transform.position.z, -15.0f, -3.0f));
                 break;
-
+            case State.FREEZE: // 카메라 고정
+                break;
         }
     }
 }

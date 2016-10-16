@@ -394,8 +394,6 @@ public class CharacterController2D : MonoBehaviour
         else
         {
             Player.skeleton.SetToSetupPose(); // 동작 초기화
-            //Player.skeleton.SetSlotsToSetupPose();
-            //Player.skeleton.SetSlotAttachmentToSetupPose(AniSpriteChange.Instance.skinNum); // 동작 초기화
             Player.state.SetAnimation(0, name, loop).TimeScale = speed; // 애니메이션의 속도
             animationName = name; // name의 값을 animationName에 넣음
         }

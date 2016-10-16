@@ -1,48 +1,54 @@
 
 skeleton.png
-size: 2048,2048
+size: 512,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 인형받침
   rotate: false
-  xy: 2, 844
-  size: 644, 1124
-  orig: 644, 1124
+  xy: 236, 141
+  size: 161, 281
+  orig: 161, 281
   offset: 0, 0
   index: -1
 춤인형다리1
   rotate: false
   xy: 2, 2
-  size: 230, 840
-  orig: 230, 840
+  size: 115, 420
+  orig: 115, 420
   offset: 0, 0
   index: -1
 춤인형다리2
   rotate: false
-  xy: 648, 1128
-  size: 230, 840
-  orig: 230, 840
-  offset: 0, 0
-  index: -1
-춤인형몸
-  rotate: false
-  xy: 234, 258
-  size: 293, 584
-  orig: 293, 584
+  xy: 119, 2
+  size: 115, 420
+  orig: 115, 420
   offset: 0, 0
   index: -1
 춤인형팔1
   rotate: false
-  xy: 880, 1726
-  size: 446, 242
-  orig: 446, 242
+  xy: 236, 18
+  size: 223, 121
+  orig: 223, 121
   offset: 0, 0
   index: -1
 춤인형팔2
   rotate: false
-  xy: 880, 1262
-  size: 211, 462
-  orig: 211, 462
+  xy: 399, 191
+  size: 105, 231
+  orig: 105, 231
+  offset: 0, 0
+  index: -1
+
+skeleton2.png
+size: 256,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+춤인형몸
+  rotate: false
+  xy: 2, 2
+  size: 146, 292
+  orig: 146, 292
   offset: 0, 0
   index: -1

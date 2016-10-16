@@ -118,6 +118,9 @@ public class UIManager : MonoBehaviour
     public bool bgmMute;
     public bool sfxMute;
 
+    public GameObject EndingCredit;
+    public float CreditSpeed = 0.001f;
+
     public void OnInGameUI() // 메인 매뉴 UI
     {
         if (UIButton.current.name.Equals("StartButton"))
@@ -618,12 +621,6 @@ public class UIManager : MonoBehaviour
         HintAlarmR.transform.position = cameraUI.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y + 10.0f,1));
         HintAlarmSpace.transform.position = cameraUI.ScreenToWorldPoint(new Vector3(screenPos.x - 5.0f, screenPos.y,1));
 
-       
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            float color = FadeBoard.GetComponent<UISprite>().alpha;
-            Debug.Log("컬러알파는 : " + color);
-        }
     }
     IEnumerator PlayerDie()
     {
@@ -966,6 +963,24 @@ public class UIManager : MonoBehaviour
                 LockDesk.enabled = true;
                 break;
         }
+    }
+
+    public IEnumerator EndCredit() // 엔딩 크레딧 함수
+    {
+        //엔딩 크레딧이 일정 높이 올라갈 때까지
+        while (EndingCredit.transform.position.y < 1500.0f)
+        {
+            EndingCredit.transform.Translate((Vector2.up * CreditSpeed * Time.deltaTime));
+            //EndingCredit.transform.localPosition = Vector3.up * Time.timeScale * CreditSpeed;
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SceneManager.LoadScene(01, LoadSceneMode.Single); // 메인화면으로 이동
+            }
+            yield return 0;
+        }
+
+        SceneManager.LoadScene(01, LoadSceneMode.Single); // 메인화면으로 이동
+        yield return 0;
     }
     /*
     public void StateUI()

@@ -14,6 +14,8 @@ TagManager:
   - CRAWL
   - HAND
   - TEXTLABEL
+  - MOBCLIMB
+  - MOBTRACEEND
   layers:
   - Default
   - TransparentFX
